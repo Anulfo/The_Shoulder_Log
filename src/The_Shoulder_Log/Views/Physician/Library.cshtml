@@ -1,0 +1,36 @@
+﻿@model The_Shoulder_Log.Models.PhysicianViewModels.LibraryViewModel
+@using The_Shoulder_Log.Models;
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+@if (!SignInManager.IsSignedIn(User))
+{
+    <h2>Please Log in to Start Shopping </h2>
+}
+
+else
+{
+    <h1>Your Patients</h1>
+
+    @if (Model.Patients != null)
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Patient Last Name</th>
+                    <th>Number of Visits</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RegisterPatient patient in Model.Patients)
+                {
+                    <tr>
+                        <td>>@Html.DisplayFor(modelPatient => patient.LastName)</td>
+                        @*<td>(@Html.DisplayFor(modelPatient => patient.Quantity))</td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+}

@@ -12,8 +12,13 @@ namespace The_Shoulder_Log.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
-        {
-        }
+        {}
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<RegisterPatient> RegisterPatient { get; set; }
+        public DbSet<PhysicalTest> PhysicalTest { get; set; }
+        public DbSet<Management> Management { get; set; }
+        public DbSet<ClinicalHist> ClinicalHist{ get; set; }
+        public DbSet<Visit> Visit { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -21,6 +26,6 @@ namespace The_Shoulder_Log.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
-        }
+        } 
     }
 }
