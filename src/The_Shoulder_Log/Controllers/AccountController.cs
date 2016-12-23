@@ -73,7 +73,7 @@ namespace The_Shoulder_Log.Controllers
                 {
                     _logger.LogWarning(2, "User account locked out.");
                     return View("Lockout");
-                }
+                } 
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -85,6 +85,71 @@ namespace The_Shoulder_Log.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Seed()
+        {
+            // Check if there is  default admin user already
+            var result = await _userManager.FindByEmailAsync("admin@admin.com");
+
+            // There is no admin user
+            if (result == null)
+            {
+                // Create an admin user instance
+                var users = new ApplicationUser[]
+                {
+                    new ApplicationUser
+                    {
+                        FirstName = "Dr.",
+                        LastName = "Dre",
+                        UserName = "Dr@Dre.com",
+                        Email = "Dr@Dre.com",
+                        Address = "First Avenue"
+                    },
+                    new ApplicationUser
+                    {
+                        FirstName = "Dr.",
+                        LastName = "Pepper",
+                        UserName = "Dr@Pepper.com",
+                        Email = "Dr@Pepper.com",
+                        Address = "Second Avenue"
+                    },
+                    new ApplicationUser
+                    {
+                        FirstName = "Dr.",
+                        LastName = "Strange",
+                        UserName = "Dr@Strange.com",
+                        Email = "Dr@Strange.com",
+                        Address = "Third Avenue"
+                    },
+                    new ApplicationUser
+                    {
+                        FirstName = "Dr.",
+                        LastName = "Phil",
+                        UserName = "Dr@Phil.com",
+                        Email = "Dr@Phil.com",
+                        Address = "Fourth Avenue"
+
+                    }
+                };
+
+                foreach (ApplicationUser user in users)
+                {
+                    var makeFourPhysicians = await _userManager.CreateAsync(user, "Password@123");
+
+                    // Creation succeed check
+                    if (makeFourPhysicians.Succeeded)
+                    {
+                        // Assign the admin user to the Administrator role that was
+                        // created in DbInitialize
+                        await _userManager.AddToRoleAsync(user, "ADMINISTRATOR");
+                    }
+
+                }
+                // Attempt to create the user in the database
+            }
+            return View();
+        }
         //
         // GET: /Account/Register
         [HttpGet]
@@ -105,7 +170,7 @@ namespace The_Shoulder_Log.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Address = model.Address, FirstName = model.FirstName, LastName = model.LastName};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
