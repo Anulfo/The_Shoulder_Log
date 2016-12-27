@@ -309,6 +309,299 @@ namespace The_Shoulder_Log.Data
 
                 context.SaveChanges();
                 context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT CLINICALHIST OFF");
+
+                var physicalTests = new PhysicalTest[]
+                {
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 1,
+                        ExternalRotation = 20,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = true,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    },
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 2,
+                        ExternalRotation = 20,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = true,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    },
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 3,
+                        ExternalRotation = 20,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = true,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    },
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 4,
+                        ExternalRotation = 20,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = true,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    },
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 5,
+                        ExternalRotation = 20,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = true,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    },
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 6,
+                        ExternalRotation = 20,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = true,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    },
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 7,
+                        ExternalRotation = 20,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = true,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    },
+                    new PhysicalTest
+                    {
+                        PhysicalTestId = 8,
+                        ExternalRotation = 30,
+                        InternalRotation = 15,
+                        Abduction = 90,
+                        JobTest = false,
+                        SpeedTest = true,
+                        NapoleonTest = false,
+                        DrawerTest = false,
+                        SulcusTest = false,
+                        AprehensionTest = false
+                    }
+                };
+                context.Database.OpenConnection();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT PHYSICALTEST ON");
+
+                foreach (PhysicalTest pt in physicalTests)
+                {
+                    context.PhysicalTest.Add(pt);
+                }
+
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT PHYSICALTEST OFF");
+
+                var managements = new Management[]
+                {
+                    new Management
+                    {
+                        ManagementId = 1,
+                        Diagnosis = "Rotator cuff tear. LHBT tendinitis.",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days.",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Functional range exercises, and strengthening deltoid muscle",
+                        FollowUpStudies = "",
+                        SurgicalTreatment = ""
+                    },
+                    new Management
+                    {
+                        ManagementId = 1,
+                        Diagnosis = "Rotator cuff tear. LHBT tendinitis.",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days.",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Functional range exercises, and strengthening deltoid muscle",
+                        FollowUpStudies = "",
+                        SurgicalTreatment = ""
+                    },
+                    new Management
+                    {
+                        ManagementId = 2,
+                        Diagnosis = "Rotator cuff tear. LHBT tendinitis.",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days.",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Functional range exercises, and strengthening deltoid muscle",
+                        FollowUpStudies = "",
+                        SurgicalTreatment = ""
+                    },
+                    new Management
+                    {
+                        ManagementId = 3,
+                        Diagnosis = "Rotator cuff tear. LHBT tendinitis.",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days.",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Functional range exercises, and strengthening deltoid muscle",
+                        FollowUpStudies = "",
+                        SurgicalTreatment = ""
+                    },
+                    new Management
+                    {
+                        ManagementId = 4,
+                        Diagnosis = "Rotator cuff tear. LHBT tendinitis.",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days.",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Functional range exercises, and strengthening deltoid muscle",
+                        FollowUpStudies = "",
+                        SurgicalTreatment = ""
+                    },
+                    new Management
+                    {
+                        ManagementId = 5,
+                        Diagnosis = "Rotator cuff tear. LHBT tendinitis.",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days.",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Functional range exercises, and strengthening deltoid muscle",
+                        FollowUpStudies = "",
+                        SurgicalTreatment = ""
+                    },
+                    new Management
+                    {
+                        ManagementId = 6,
+                        Diagnosis = "Rotator cuff tear. LHBT tendinitis.",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days.",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Functional range exercises, and strengthening deltoid muscle",
+                        FollowUpStudies = "",
+                        SurgicalTreatment = ""
+                    },
+                    new Management
+                    {
+                        ManagementId = 7,
+                        Diagnosis = "Anterior Left Shoulder Instability",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Strengthening of deltoid and pectoralis major muscles",
+                        FollowUpStudies = "Shoulder CT scan with intraarticular contrast. Shoulder X rays A-P view, axial view and Y-view",
+                        SurgicalTreatment = "To decide after checking results of Shoulder CT"
+                    },
+                    new Management
+                    {
+                        ManagementId = 8,
+                        Diagnosis = "Anterior Left Shoulder Instability",
+                        Medication = "Ketoprofen 100mg every 8 hours for 5 days",
+                        Rehabilitation = "Initiate rehabilitation after 1 week with medication. Strengthening of deltoid and pectoralis major muscles",
+                        FollowUpStudies = "Shoulder CT scan with intraarticular contrast. Shoulder X rays A-P view, axial view and Y-view",
+                        SurgicalTreatment = "To decide after checking results of Shoulder CT"
+                    }
+                };
+
+                context.Database.OpenConnection();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT MANAGEMENT ON");
+
+                foreach (Management m in managements)
+                {
+                    context.Management.Add(m);
+                }
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT MANAGEMENT OFF");
+
+                var visits = new Visit[]
+                {
+
+                    new Visit
+                    {
+                         VisitId = 1,
+                         RegisterPatientId = 1,
+                         ClinicalHistId = 1,
+                         PhysicalTestId  = 1,
+                         VisitDate = new DateTime()
+                    },
+                    new Visit
+                    {
+                         VisitId = 2,
+                         RegisterPatientId = 2,
+                         ClinicalHistId = 2,
+                         PhysicalTestId  = 2,
+                         VisitDate = new DateTime()
+                    },
+                    new Visit
+                    {
+                         VisitId = 3,
+                         RegisterPatientId = 3,
+                         ClinicalHistId = 3,
+                         PhysicalTestId  = 3,
+                         VisitDate = new DateTime()
+                    },
+                    new Visit
+                    {
+                         VisitId = 4,
+                         RegisterPatientId = 4,
+                         ClinicalHistId = 4,
+                         PhysicalTestId  = 4,
+                         VisitDate = new DateTime()
+                    },
+                    new Visit
+                    {
+                         VisitId = 5,
+                         RegisterPatientId = 5,
+                         ClinicalHistId = 5,
+                         PhysicalTestId  = 5,
+                         VisitDate = new DateTime()
+                    },
+                    new Visit
+                    {
+                         VisitId = 6,
+                         RegisterPatientId = 6,
+                         ClinicalHistId = 6,
+                         PhysicalTestId  = 6,
+                         VisitDate = new DateTime()
+                    },
+                    new Visit
+                    {
+                         VisitId = 7,
+                         RegisterPatientId = 7,
+                         ClinicalHistId = 7,
+                         PhysicalTestId  = 7,
+                         VisitDate = new DateTime()
+                    },
+                    new Visit
+                    {
+                        VisitId = 8,
+                        RegisterPatientId = 8,
+                        ClinicalHistId = 8,
+                        PhysicalTestId  = 8,
+                        VisitDate = new DateTime()
+                    }
+                };
+
+                context.Database.OpenConnection();
+                context.Database.ExecuteSqlCommand("SET INSERT_IDENTITY VISIT ON");
+
+                foreach (Visit v in visits)
+                {
+                    context.Visit.Add(v);
+                }
+
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("SET INSERT_IDENTITY VISIT OFF");                
             }
         }
     }
