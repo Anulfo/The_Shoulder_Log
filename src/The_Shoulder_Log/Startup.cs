@@ -84,7 +84,7 @@ namespace The_Shoulder_Log
 
             app.UseIdentity();
 
-            DbInitializer.Initialize(app.ApplicationServices);
+            //DbInitializer.Initialize(app.ApplicationServices);
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
 

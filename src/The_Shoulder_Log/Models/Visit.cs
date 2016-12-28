@@ -13,8 +13,7 @@ namespace The_Shoulder_Log.Models
 
         public int VisitId { get; set; }
 
-        public virtual ApplicationUser Physician { get; set; }
-
+        public virtual ApplicationUser User { get; set; }
 
         public int RegisterPatientId { get; set; }
 

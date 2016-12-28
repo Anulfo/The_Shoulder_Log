@@ -588,8 +588,7 @@ namespace The_Shoulder_Log.Data
                         RegisterPatientId = 8,
                         ClinicalHistId = 8,
                         PhysicalTestId  = 8,
-                        VisitDate = new DateTime()
-                    }
+                        VisitDate = new DateTime()                    }
                 };
 
                 context.Database.OpenConnection();
@@ -601,7 +600,7 @@ namespace The_Shoulder_Log.Data
                 }
 
                 context.SaveChanges();
-                context.Database.ExecuteSqlCommand("SET INSERT_IDENTITY VISIT OFF");                
+                context.Database.ExecuteSqlCommand("SET INSERT_IDENTITY VISIT OFF");
             }
         }
     }

@@ -30,11 +30,10 @@ namespace The_Shoulder_Log.Controllers
             string physicianId = physician.Id;
             var model = new LibraryViewModel();
 
-            var doctorsPatients = (from user in context.Users
-                                         join visit in context.Visit on user equals visit.Physician
-                                         join patient in context.RegisterPatient on visit.RegisterPatientId equals patient.RegisterPatientId
-                                         where user.Id == physicianId
-                                         select new RegisterPatient
+            var doctorsPatients = (from patient in context.RegisterPatient
+                                    join visit in context.Visit on patient.RegisterPatientId equals visit.RegisterPatientId
+                                    where User.Identity == physician
+                                    select new RegisterPatient
                                          {
                                              RegisterPatientId = patient.RegisterPatientId,
                                              LastName = patient.LastName,

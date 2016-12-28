@@ -10,27 +10,31 @@
 
 else
 {
-    <h1>Your Patients</h1>
+    <div class="row">
+        <h1>Your Patients</h1>
 
-    @if (Model.Patients != null)
-    {
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Patient Last Name</th>
-                    <th>Number of Visits</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (RegisterPatient patient in Model.Patients)
-                {
+        @if (Model.Patients != null)
+        {
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>>@Html.DisplayFor(modelPatient => patient.LastName)</td>
-                        @*<td>(@Html.DisplayFor(modelPatient => patient.Quantity))</td>*@
+                        <th>Patient Last Name</th>
+                        <th>Number of Visits</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-
-    }
+                </thead>
+                <tbody>
+                    @foreach (RegisterPatient patient in Model.Patients)
+                    {
+                        <tr>
+                            <td>>@Html.DisplayFor(modelPatient => patient.LastName)</td>
+                            @*<td>(@Html.DisplayFor(modelPatient => patient.Quantity))</td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    <div class="row center">
+        <a class="center" asp-controller="Patient" asp-action="PatientRegister"><input type="button" class="btn-primary" value="Create New Record" /></a>
+    </div>
 }
