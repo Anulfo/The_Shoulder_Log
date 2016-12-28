@@ -13,23 +13,16 @@ namespace The_Shoulder_Log.Models
 
         public int VisitId { get; set; }
 
-        [Required]
-
-        public virtual ApplicationUser Physician { get; set; }
-
-        [Required]
+        public virtual ApplicationUser User { get; set; }
 
         public int RegisterPatientId { get; set; }
 
-        [Required]
 
         public int ClinicalHistId { get; set; }
 
-        [Required]
 
         public int PhysicalTestId { get; set; }
 
-        [Required]
 
         public int ManagementId { get; set; }
 

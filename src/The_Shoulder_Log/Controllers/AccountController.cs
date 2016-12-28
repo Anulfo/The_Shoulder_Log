@@ -138,12 +138,12 @@ namespace The_Shoulder_Log.Controllers
                     var makeFourPhysicians = await _userManager.CreateAsync(user, "Password@123");
 
                     // Creation succeed check
-                    if (makeFourPhysicians.Succeeded)
-                    {
+                    //if (makeFourPhysicians.Succeeded)
+                    //{
                         // Assign the admin user to the Administrator role that was
                         // created in DbInitialize
-                        await _userManager.AddToRoleAsync(user, "ADMINISTRATOR");
-                    }
+                    //    await _userManager.AddToRoleAsync(user, "ADMINISTRATOR");
+                    //}
 
                 }
                 // Attempt to create the user in the database
