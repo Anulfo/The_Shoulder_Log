@@ -83,5 +83,43 @@ namespace The_Shoulder_Log.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PatientPhysicalTest(PhysicalTest physicalTest)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(physicalTest);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Library", new RouteValueDictionary(new { controller = "Physician", action = "Library" }));
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult PatientManagement()
+        {
+            var model = new PatientManagementViewModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PatientManagement(Management management)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(management);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Library", new RouteValueDictionary(new { Controller = "Physician", Action = "Library" }));
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }

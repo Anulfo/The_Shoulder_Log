@@ -8,9 +8,10 @@ using The_Shoulder_Log.Data;
 namespace The_Shoulder_Log.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161230013941_fourth")]
+    partial class fourth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -232,9 +233,6 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.Property<string>("Diagnosis")
                         .IsRequired();
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<string>("FollowUpStudies")
                         .IsRequired();
 
@@ -250,8 +248,6 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.HasKey("ManagementId");
 
                     b.ToTable("Management");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Management");
                 });
 
             modelBuilder.Entity("The_Shoulder_Log.Models.PhysicalTest", b =>
@@ -351,16 +347,6 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Visit");
-                });
-
-            modelBuilder.Entity("The_Shoulder_Log.Models.PatientViewModels.PatientManagementViewModel", b =>
-                {
-                    b.HasBaseType("The_Shoulder_Log.Models.Management");
-
-
-                    b.ToTable("PatientManagementViewModel");
-
-                    b.HasDiscriminator().HasValue("PatientManagementViewModel");
                 });
 
             modelBuilder.Entity("The_Shoulder_Log.Models.PatientViewModels.PatientPhysicalTestViewModel", b =>

@@ -30,5 +30,7 @@ namespace The_Shoulder_Log.Data
         } 
 
         public DbSet<PatientPhysicalTestViewModel> PatientPhysicalTestViewModel { get; set; }
+
+        public DbSet<PatientManagementViewModel> PatientManagementViewModel { get; set; }
     }
 }
