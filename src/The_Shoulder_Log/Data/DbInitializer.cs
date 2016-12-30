@@ -192,7 +192,7 @@ namespace The_Shoulder_Log.Data
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
                         SpadiScore = 30,
-                        WosiScore = null,
+                        WosiScore = 2000,
                         PhysicianComments = "23 years old female patient who begin to complain about pain in his right shoulder for 3 months"
                     },
                     new ClinicalHist
@@ -209,7 +209,7 @@ namespace The_Shoulder_Log.Data
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
                         SpadiScore = 70,
-                        WosiScore = null,
+                        WosiScore = 2000,
                         PhysicianComments = "20 years old female patient who begin to complain about pain in his right shoulder for 3 months"
                     },
                     new ClinicalHist
@@ -226,7 +226,7 @@ namespace The_Shoulder_Log.Data
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
                         SpadiScore = 80,
-                        WosiScore = null,
+                        WosiScore = 2000,
                         PhysicianComments = "34 years old female patient who begin to complain about pain in both shoulders for 3 months"
                     },
                     new ClinicalHist
@@ -260,7 +260,7 @@ namespace The_Shoulder_Log.Data
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
                         SpadiScore = 30,
-                        WosiScore = null,
+                        WosiScore = 2000,
                         PhysicianComments = "65 years old female patient who begin to complain about pain in his right shoulder for 8 months"
                     },
                     new ClinicalHist
@@ -277,7 +277,7 @@ namespace The_Shoulder_Log.Data
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
                         SpadiScore = 30,
-                        WosiScore = null,
+                        WosiScore = 2000,
                         PhysicianComments = "54 years old female patient who begin to complain about pain in his right shoulder for 8 months"
                     },
                     new ClinicalHist
@@ -294,7 +294,7 @@ namespace The_Shoulder_Log.Data
                         TraumaticAntc = "",
                         HasBeenDislocated = true,
                         SpadiScore = 30,
-                        WosiScore = null,
+                        WosiScore = 2000,
                         PhysicianComments = "21 years old female patient who begin to complain about pain and instability in his right shoulder for 3 months"
                     }
                 };

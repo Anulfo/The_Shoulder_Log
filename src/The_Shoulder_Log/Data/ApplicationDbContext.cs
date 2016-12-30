@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using The_Shoulder_Log.Models;
+using The_Shoulder_Log.Models.PatientViewModels;
 
 namespace The_Shoulder_Log.Data
 {
@@ -27,5 +28,7 @@ namespace The_Shoulder_Log.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         } 
+
+        public DbSet<PatientPhysicalTestViewModel> PatientPhysicalTestViewModel { get; set; }
     }
 }

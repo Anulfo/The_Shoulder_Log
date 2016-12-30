@@ -18,7 +18,7 @@ namespace The_Shoulder_Log.Models
 
         [Required]
 
-        public DateTime PainDate { get; set; }
+        public DateTime? PainDate { get; set; }
 
         [Required]
 
@@ -28,7 +28,7 @@ namespace The_Shoulder_Log.Models
 
         public string TraumaticAntc { get; set; }
 
-        [Required]
+        //[Required]
 
         public bool HasBeenDislocated { get; set; }
 
@@ -36,11 +36,9 @@ namespace The_Shoulder_Log.Models
 
         public string PhysicianComments { get; set; }
 
-        [Required]
-
         public int SpadiScore { get; set; }
 
-        public int? WosiScore { get; set; }
+        public int WosiScore { get; set; }
 
         public string Allergies { get; set; }
 

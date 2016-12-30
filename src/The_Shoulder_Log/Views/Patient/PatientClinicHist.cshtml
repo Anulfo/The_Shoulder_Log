@@ -1,0 +1,119 @@
+﻿@model The_Shoulder_Log.Models.PatientViewModels.PatientClinicHistViewModel
+
+@{
+    ViewData["Title"] = "PatientClinicHist";
+}
+
+<h2>Patient Clinical History</h2>
+
+<form asp-action="PatientClinicHist">
+    <div class="form-horizontal">
+        <h4>Patient Clinical History</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-center"></div>
+        <div class="form-group">
+            <label asp-for="Allergies" class="col-md-2 control-label">Allergies</label>
+            <div class="col-md-10">
+                <input asp-for="Allergies" class="form-control" />
+                <span asp-validation-for="Allergies" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PastMedicalHistory" class="col-md-2 control-label">Past Medical History</label>
+            <div class="col-md-10">
+                <input asp-for="PastMedicalHistory" class="form-control" />
+                <span asp-validation-for="PastMedicalHistory" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PastSurgeries" class="col-md-2 control-label">Previous Surgery on Shoulder</label>
+            <div class="col-md-10">
+                <input asp-for="PastSurgeries" class="form-control" />
+                <span asp-validation-for="PastSurgeries" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MedicationSummary" class="col-md-2 control-label">Medication Summary</label>
+            <div class="col-md-10">
+                <input asp-for="MedicationSummary" class="form-control" />
+                <span asp-validation-for="MedicationSummary" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FamilyHist" class="col-md-2 control-label">Family Diseases</label>
+            <div class="col-md-10">
+                <input asp-for="FamilyHist" class="form-control" />
+                <span asp-validation-for="FamilyHist" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SocialHistory" class="col-md-2 control-label">Social History</label>
+            <div class="col-md-10">
+                <input asp-for="SocialHistory" class="form-control" />
+                <span asp-validation-for="SocialHistory" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TraumaticAntc" class="col-md-2 control-label">Traumatic Antecedent</label>
+            <div class="col-md-10">
+                <input asp-for="TraumaticAntc" class="form-control" />
+                <span asp-validation-for="TraumaticAntc" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PainDate" class="col-md-2 control-label">Date since pain started</label>
+            <div class="col-md-10">
+                <input asp-for="PainDate" class="form-control"/>
+                <span asp-validation-for="PainDate" class="text-danger"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PainfulShoulder" class="col-md-2 control-label">Painful Shoulder</label>
+            <div class="col-md-10">
+                <input asp-for="PainfulShoulder" class="form-control" />
+                <span asp-validation-for="PainfulShoulder" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PainActivity" class="col-md-2 control-label">Activity that elicits pain</label>
+            <div class="col-md-10">
+                <input asp-for="PainActivity" class="form-control" />
+                <span asp-validation-for="PainActivity" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="HasBeenDislocated" class="col-md-2 control-label">Dislocation Antecedent</label>
+            <div class="col-md-10">
+                @Html.DropDownList("Choose", new SelectList(
+                    new[]
+                    {
+                        new {Value = "True", Text= "Yes"},
+                        new {Value = "False", Text= "No"},
+                    },
+                    "Value",
+                    "Text",
+                    Model))
+                <span asp-validation-for="HasBeenDislocated" class="text-danger"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhysicianComments" class="col-md-2 control-label">Physician Comments</label>
+            <div class="col-md-10">
+                <input asp-for="PhysicianComments" class="form-control" />
+                <span asp-validation-for="PhysicianComments" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a asp-controller="Patient" asp-action="PatientClinicHist"><input type="submit" value="Patient New Clinical History" class="btn btn-default" /></a>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-controller="Physician" asp-action="Library">Back to the Library</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
