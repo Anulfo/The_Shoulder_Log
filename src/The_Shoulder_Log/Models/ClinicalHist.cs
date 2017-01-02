@@ -36,10 +36,6 @@ namespace The_Shoulder_Log.Models
 
         public string PhysicianComments { get; set; }
 
-        public int SpadiScore { get; set; }
-
-        public int WosiScore { get; set; }
-
         public string Allergies { get; set; }
 
         public string PastMedicalHistory { get; set; }

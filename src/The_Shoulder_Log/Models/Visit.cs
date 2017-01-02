@@ -17,14 +17,15 @@ namespace The_Shoulder_Log.Models
 
         public int RegisterPatientId { get; set; }
 
-
         public int ClinicalHistId { get; set; }
-
 
         public int PhysicalTestId { get; set; }
 
-
         public int ManagementId { get; set; }
+
+        public int SpadiScoreId { get; set; }
+
+        public int? WosiScoreId { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

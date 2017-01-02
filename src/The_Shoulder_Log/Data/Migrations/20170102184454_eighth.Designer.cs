@@ -8,9 +8,10 @@ using The_Shoulder_Log.Data;
 namespace The_Shoulder_Log.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170102184454_eighth")]
+    partial class eighth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -319,16 +320,11 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.Property<int>("SpadiScoreId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<int>("SpadiFinalScore");
 
                     b.HasKey("SpadiScoreId");
 
                     b.ToTable("SpadiScore");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("SpadiScore");
                 });
 
             modelBuilder.Entity("The_Shoulder_Log.Models.Visit", b =>
@@ -370,41 +366,6 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.HasKey("WosiScoreId");
 
                     b.ToTable("WosiScore");
-                });
-
-            modelBuilder.Entity("The_Shoulder_Log.Models.PatientViewModels.PatientSpadiScoreViewModel", b =>
-                {
-                    b.HasBaseType("The_Shoulder_Log.Models.SpadiScore");
-
-                    b.Property<int>("CarryingObject");
-
-                    b.Property<int>("LyingOnSide");
-
-                    b.Property<int>("PlacingObjectHighShelf");
-
-                    b.Property<int>("PushingArm");
-
-                    b.Property<int>("PuttingPants");
-
-                    b.Property<int>("PuttingPullover");
-
-                    b.Property<int>("PuttingShirtButtons");
-
-                    b.Property<int>("Reaching");
-
-                    b.Property<int>("RemovingBackPocket");
-
-                    b.Property<int>("TouchingNeck");
-
-                    b.Property<int>("WashingBack");
-
-                    b.Property<int>("WashingHair");
-
-                    b.Property<int>("WorstPain");
-
-                    b.ToTable("PatientSpadiScoreViewModel");
-
-                    b.HasDiscriminator().HasValue("PatientSpadiScoreViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

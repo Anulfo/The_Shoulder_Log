@@ -169,8 +169,6 @@ namespace The_Shoulder_Log.Data
                         TraumaticAntc = "car crash in 2016",
                         HasBeenDislocated = false,
                         PhysicianComments = "35 years old male patient who begin to complain about pain in his right shoulder for 8 months",
-                        SpadiScore = 25,
-                        WosiScore = 1500,
                         Allergies = "Bee Sting",
                         PastMedicalHistory = "HBP",
                         PastSurgeries = "Apendicitis",
@@ -191,8 +189,6 @@ namespace The_Shoulder_Log.Data
                         PainActivity = "While trying external rotation and abduction of the shoulder",
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
-                        SpadiScore = 30,
-                        WosiScore = 2000,
                         PhysicianComments = "23 years old female patient who begin to complain about pain in his right shoulder for 3 months"
                     },
                     new ClinicalHist
@@ -208,8 +204,6 @@ namespace The_Shoulder_Log.Data
                         PainActivity = "While trying to reach objects above the head",
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
-                        SpadiScore = 70,
-                        WosiScore = 2000,
                         PhysicianComments = "20 years old female patient who begin to complain about pain in his right shoulder for 3 months"
                     },
                     new ClinicalHist
@@ -225,8 +219,6 @@ namespace The_Shoulder_Log.Data
                         PainActivity = "While sleeping and trying to lift arms above the head",
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
-                        SpadiScore = 80,
-                        WosiScore = 2000,
                         PhysicianComments = "34 years old female patient who begin to complain about pain in both shoulders for 3 months"
                     },
                     new ClinicalHist
@@ -242,8 +234,6 @@ namespace The_Shoulder_Log.Data
                         PainActivity = "While trying external rotation and abduction of the shoulder",
                         TraumaticAntc = "",
                         HasBeenDislocated = true,
-                        SpadiScore = 30,
-                        WosiScore = 1500,
                         PhysicianComments = "22 years old female patient who begin to complain about instability in the right shoulder for a few years"
                     },
                     new ClinicalHist
@@ -259,8 +249,6 @@ namespace The_Shoulder_Log.Data
                         PainActivity = "While trying external rotation and abduction of the shoulder",
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
-                        SpadiScore = 30,
-                        WosiScore = 2000,
                         PhysicianComments = "65 years old female patient who begin to complain about pain in his right shoulder for 8 months"
                     },
                     new ClinicalHist
@@ -276,8 +264,6 @@ namespace The_Shoulder_Log.Data
                         PainActivity = "While sleeping and raise arms above the head",
                         TraumaticAntc = "",
                         HasBeenDislocated = false,
-                        SpadiScore = 30,
-                        WosiScore = 2000,
                         PhysicianComments = "54 years old female patient who begin to complain about pain in his right shoulder for 8 months"
                     },
                     new ClinicalHist
@@ -293,8 +279,6 @@ namespace The_Shoulder_Log.Data
                         PainActivity = "While trying external rotation and abduction of the shoulder",
                         TraumaticAntc = "",
                         HasBeenDislocated = true,
-                        SpadiScore = 30,
-                        WosiScore = 2000,
                         PhysicianComments = "21 years old female patient who begin to complain about pain and instability in his right shoulder for 3 months"
                     }
                 };

@@ -121,5 +121,30 @@ namespace The_Shoulder_Log.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public IActionResult PatientSpadiTest()
+        {
+            var model = new PatientSpadiScoreViewModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PatientSpadiTest(SpadiScore spadiScore)
+        {
+            var model = new PatientSpadiScoreViewModel();
+            if (ModelState.IsValid)
+            {
+                spadiScore.SpadiFinalScore = spadiScore.WorstPain + spadiScore.LyingOnSide + spadiScore.Reaching + spadiScore.TouchingNeck + spadiScore.PushingArm + spadiScore.WashingHair + spadiScore.WashingBack + spadiScore.PuttingPants + spadiScore.PuttingPullover + spadiScore.PuttingShirtButtons + spadiScore.PlacingObjectHighShelf + spadiScore.CarryingObject + spadiScore.RemovingBackPocket;
+                context.Add(spadiScore);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Library", new RouteValueDictionary(new { Controller = "Physician", Action = "Library" }));
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }

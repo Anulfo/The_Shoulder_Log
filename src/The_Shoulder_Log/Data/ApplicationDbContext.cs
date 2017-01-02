@@ -14,12 +14,14 @@ namespace The_Shoulder_Log.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {}
+        public DbSet<Visit> Visit { get; set; }
+        public DbSet<SpadiScore> SpadiScore { get; set; }
+        public DbSet<WosiScore> WosiScore { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<RegisterPatient> RegisterPatient { get; set; }
         public DbSet<PhysicalTest> PhysicalTest { get; set; }
         public DbSet<Management> Management { get; set; }
         public DbSet<ClinicalHist> ClinicalHist{ get; set; }
-        public DbSet<Visit> Visit { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -29,8 +31,7 @@ namespace The_Shoulder_Log.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         } 
 
-        public DbSet<PatientPhysicalTestViewModel> PatientPhysicalTestViewModel { get; set; }
+        public DbSet<PatientSpadiScoreViewModel> PatientSpadiScoreViewModel { get; set; }
 
-        public DbSet<PatientManagementViewModel> PatientManagementViewModel { get; set; }
     }
 }

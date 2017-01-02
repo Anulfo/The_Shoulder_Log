@@ -7,5 +7,6 @@ namespace The_Shoulder_Log.Models.PatientViewModels
 {
     public class PatientClinicHistViewModel : ClinicalHist
     {
+        
     }
 }
