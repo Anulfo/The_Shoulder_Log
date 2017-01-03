@@ -24,16 +24,13 @@ namespace The_Shoulder_Log.Controllers
             context = ctx;
         }
 
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+
         [HttpGet]
         public IActionResult PatientRegister()
         {
             var model = new PatientRegisterViewModel();
-
-            model.GenderList = new List<GenderOptions>
-            {
-                new GenderOptions {GenderId = 1, GenderName= "male" },
-                new GenderOptions {GenderId = 2, GenderName= "female" }
-            };
             return View(model);
         }
 
@@ -41,9 +38,14 @@ namespace The_Shoulder_Log.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> PatientRegister(RegisterPatient registerPatient)
         {
+            var physician = await GetCurrentUserAsync();
+
             if (ModelState.IsValid)
             {
                 context.Add(registerPatient);
+                await context.SaveChangesAsync();
+                Visit visit = new Visit() { RegisterPatientId = registerPatient.RegisterPatientId, IsActive = true, VisitDate = DateTime.Now, User = physician};
+                context.Visit.Add(visit);
                 await context.SaveChangesAsync();
                 return RedirectToAction("Library", new RouteValueDictionary(new { controller = "Physician", action = "Library" }));
             }

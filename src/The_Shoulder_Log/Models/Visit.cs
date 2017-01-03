@@ -31,8 +31,7 @@ namespace The_Shoulder_Log.Models
 
         [Required]
         [DataType(DataType.Date)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime VisitDate { get; set; }
     }
 }

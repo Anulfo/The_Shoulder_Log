@@ -8,9 +8,10 @@ using The_Shoulder_Log.Data;
 namespace The_Shoulder_Log.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170103164352_twelfth")]
+    partial class twelfth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -377,7 +378,7 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.Property<string>("UserId");
 
                     b.Property<DateTime>("VisitDate")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<int?>("WosiScoreId");
 
