@@ -49,7 +49,7 @@
         <div class="form-group">
             <label asp-for="DateOfBirth" class="col-md-2 control-label">Date Of Birth</label>
             <div class="col-md-10">
-                <input asp-for="DateOfBirth" class="form-control" />
+                <input type="datetime-local" asp-for="DateOfBirth" class="form-control" />
                 <span asp-validation-for="DateOfBirth" class="text-danger" />
             </div>
         </div>

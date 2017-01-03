@@ -27,6 +27,8 @@ namespace The_Shoulder_Log.Models
 
         public int? WosiScoreId { get; set; }
 
+        public bool IsActive { get; set;}
+
         [Required]
         [DataType(DataType.Date)]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

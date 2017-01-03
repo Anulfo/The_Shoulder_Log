@@ -11,13 +11,6 @@
         <h4>PatientSpadiScoreViewModel</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @*<div class="form-group">
-            <label asp-for="SpadiFinalScore" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="SpadiFinalScore" class="form-control" />
-                <span asp-validation-for="SpadiFinalScore" class="text-danger" />
-            </div>
-        </div>*@
         <div class="form-group">
             <label asp-for="CarryingObject" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -116,7 +109,11 @@
         </div>
     </div>
 </form>
-
+<Slider Name="RectangleHeight" Margin="10, 0, 0, 0"
+        Width="100" Orientation="Horizontal" HorizontalAlignment="Left"
+        Value="50" Minimum="0" Maximum="200"
+        SmallChange="1" LargeChange="10"
+        TickPlacement="BottomRight" TickFrequency="10"/>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

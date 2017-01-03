@@ -33,5 +33,7 @@ namespace The_Shoulder_Log.Data
 
         public DbSet<PatientSpadiScoreViewModel> PatientSpadiScoreViewModel { get; set; }
 
+        public DbSet<PatientWosiScoreViewModel> PatientWosiScoreViewModel { get; set; }
+
     }
 }

@@ -133,12 +133,36 @@ namespace The_Shoulder_Log.Controllers
         [HttpPost]
         public async Task<IActionResult> PatientSpadiTest(SpadiScore spadiScore)
         {
-            var model = new PatientSpadiScoreViewModel();
             if (ModelState.IsValid)
             {
                 spadiScore.SpadiFinalScore = spadiScore.WorstPain + spadiScore.LyingOnSide + spadiScore.Reaching + spadiScore.TouchingNeck + spadiScore.PushingArm + spadiScore.WashingHair + spadiScore.WashingBack + spadiScore.PuttingPants + spadiScore.PuttingPullover + spadiScore.PuttingShirtButtons + spadiScore.PlacingObjectHighShelf + spadiScore.CarryingObject + spadiScore.RemovingBackPocket;
                 context.Add(spadiScore);
                 await context.SaveChangesAsync();
+                return RedirectToAction("Library", new RouteValueDictionary(new { Controller = "Physician", Action = "Library" }));
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult PatientWosiTest()
+        {
+            var model = new PatientWosiScoreViewModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PatientWosiTest(WosiScore wosiScore)
+        {
+            if (ModelState.IsValid)
+            {
+                wosiScore.WosiFinalScore = wosiScore.AchingThrobbing + wosiScore.Compesation + wosiScore.ConsciousSHoulder + wosiScore.Cracking + wosiScore.DifficultyFitness + wosiScore.Discomfort + wosiScore.Fatigue + wosiScore.FearOfFalling + wosiScore.HorseAround + wosiScore.LiftObjectsBelow + wosiScore.OverheadPain + wosiScore.ProtectArm + wosiScore.RangeOfMotion + wosiScore.ShoulderFrustration + wosiScore.ShoulderWorse + wosiScore.SleepDifficult + wosiScore.Sports + wosiScore.SportsOrWork + wosiScore.Stiffness + wosiScore.Weakness;
+                context.Add(wosiScore);
+                await context.SaveChangesAsync();
+
                 return RedirectToAction("Library", new RouteValueDictionary(new { Controller = "Physician", Action = "Library" }));
             }
             else

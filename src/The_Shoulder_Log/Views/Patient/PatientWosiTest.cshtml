@@ -1,0 +1,175 @@
+@model The_Shoulder_Log.Models.PatientViewModels.PatientWosiScoreViewModel
+
+@{
+    ViewData["Title"] = "PatientWosiTest";
+}
+
+<h2>PatientWosiTest</h2>
+
+<form asp-action="PatientWosiTest">
+    <div class="form-horizontal">
+        <h4>PatientWosiScoreViewModel</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="AchingThrobbing" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AchingThrobbing" class="form-control" />
+                <span asp-validation-for="AchingThrobbing" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Compesation" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Compesation" class="form-control" />
+                <span asp-validation-for="Compesation" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConsciousSHoulder" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ConsciousSHoulder" class="form-control" />
+                <span asp-validation-for="ConsciousSHoulder" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cracking" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Cracking" class="form-control" />
+                <span asp-validation-for="Cracking" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DifficultyFitness" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DifficultyFitness" class="form-control" />
+                <span asp-validation-for="DifficultyFitness" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Discomfort" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Discomfort" class="form-control" />
+                <span asp-validation-for="Discomfort" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Fatigue" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Fatigue" class="form-control" />
+                <span asp-validation-for="Fatigue" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FearOfFalling" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FearOfFalling" class="form-control" />
+                <span asp-validation-for="FearOfFalling" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="HorseAround" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="HorseAround" class="form-control" />
+                <span asp-validation-for="HorseAround" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LiftObjectsBelow" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LiftObjectsBelow" class="form-control" />
+                <span asp-validation-for="LiftObjectsBelow" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="OverheadPain" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="OverheadPain" class="form-control" />
+                <span asp-validation-for="OverheadPain" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProtectArm" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProtectArm" class="form-control" />
+                <span asp-validation-for="ProtectArm" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RangeOfMotion" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RangeOfMotion" class="form-control" />
+                <span asp-validation-for="RangeOfMotion" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShoulderFrustration" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ShoulderFrustration" class="form-control" />
+                <span asp-validation-for="ShoulderFrustration" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShoulderWorse" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ShoulderWorse" class="form-control" />
+                <span asp-validation-for="ShoulderWorse" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SleepDifficult" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SleepDifficult" class="form-control" />
+                <span asp-validation-for="SleepDifficult" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Sports" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Sports" class="form-control" />
+                <span asp-validation-for="Sports" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SportsOrWork" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SportsOrWork" class="form-control" />
+                <span asp-validation-for="SportsOrWork" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Stiffness" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Stiffness" class="form-control" />
+                <span asp-validation-for="Stiffness" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Weakness" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Weakness" class="form-control" />
+                <span asp-validation-for="Weakness" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="WosiFinalScore" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="WosiFinalScore" class="form-control" />
+                <span asp-validation-for="WosiFinalScore" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a asp-controller="Patient" asp-action="PatientWosiTest"><input type="submit" value="Save New WosiTest" class="btn btn-default" /></a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
