@@ -47,7 +47,7 @@ namespace The_Shoulder_Log.Controllers
                 Visit visit = new Visit() { RegisterPatientId = registerPatient.RegisterPatientId, IsActive = true, VisitDate = DateTime.Now, User = physician};
                 context.Visit.Add(visit);
                 await context.SaveChangesAsync();
-                return RedirectToAction("Library", new RouteValueDictionary(new { controller = "Physician", action = "Library" }));
+                return RedirectToAction("PatientClinicHist", new RouteValueDictionary(new { controller = "Patient", action = "PatientClinicHist" }));
             }
             else
             {
@@ -70,7 +70,15 @@ namespace The_Shoulder_Log.Controllers
             {
                 context.Add(clinicalHist);
                 await context.SaveChangesAsync();
-                return RedirectToAction("Library", new RouteValueDictionary(new { controller = "Physician", action = "Library" }));
+
+                var activeVisit = (from visit in context.Visit
+                                   where visit.IsActive == true
+                                   select visit).Single();
+
+                activeVisit.ClinicalHistId = clinicalHist.ClinicalHistId;
+                context.Update(activeVisit);
+                await context.SaveChangesAsync();
+                return RedirectToAction("PatientPhysicalTest", new RouteValueDictionary(new { controller = "Patient", action = "PatientPhysicalTest" }));
             }
             else
             {
@@ -93,7 +101,15 @@ namespace The_Shoulder_Log.Controllers
             {
                 context.Add(physicalTest);
                 await context.SaveChangesAsync();
-                return RedirectToAction("Library", new RouteValueDictionary(new { controller = "Physician", action = "Library" }));
+
+                var activeVisit = (from visit in context.Visit
+                                   where visit.IsActive == true
+                                   select visit).Single();
+
+                activeVisit.PhysicalTestId = physicalTest.PhysicalTestId;
+                context.Update(activeVisit);
+                await context.SaveChangesAsync();
+                return RedirectToAction("PatientSpadiTest", new RouteValueDictionary(new { controller = "Patient", action = "PatientSpadiTest" }));
             }
             else
             {
@@ -115,6 +131,15 @@ namespace The_Shoulder_Log.Controllers
             if (ModelState.IsValid)
             {
                 context.Add(management);
+                await context.SaveChangesAsync();
+
+                var activeVisit = (from visit in context.Visit
+                                   where visit.IsActive == true
+                                   select visit).Single();
+
+                activeVisit.ManagementId = management.ManagementId;
+                activeVisit.IsActive = false;
+                context.Update(activeVisit);
                 await context.SaveChangesAsync();
                 return RedirectToAction("Library", new RouteValueDictionary(new { Controller = "Physician", Action = "Library" }));
             }
@@ -140,7 +165,15 @@ namespace The_Shoulder_Log.Controllers
                 spadiScore.SpadiFinalScore = spadiScore.WorstPain + spadiScore.LyingOnSide + spadiScore.Reaching + spadiScore.TouchingNeck + spadiScore.PushingArm + spadiScore.WashingHair + spadiScore.WashingBack + spadiScore.PuttingPants + spadiScore.PuttingPullover + spadiScore.PuttingShirtButtons + spadiScore.PlacingObjectHighShelf + spadiScore.CarryingObject + spadiScore.RemovingBackPocket;
                 context.Add(spadiScore);
                 await context.SaveChangesAsync();
-                return RedirectToAction("Library", new RouteValueDictionary(new { Controller = "Physician", Action = "Library" }));
+
+                var activeVisit = (from visit in context.Visit
+                                   where visit.IsActive == true
+                                   select visit).Single();
+
+                activeVisit.SpadiScoreId = spadiScore.SpadiScoreId;
+                context.Update(activeVisit);
+                await context.SaveChangesAsync();
+                return RedirectToAction("PatientManagement", new RouteValueDictionary(new { Controller = "Patient", Action = "PatientManagement" }));
             }
             else
             {
@@ -163,6 +196,14 @@ namespace The_Shoulder_Log.Controllers
             {
                 wosiScore.WosiFinalScore = wosiScore.AchingThrobbing + wosiScore.Compesation + wosiScore.ConsciousSHoulder + wosiScore.Cracking + wosiScore.DifficultyFitness + wosiScore.Discomfort + wosiScore.Fatigue + wosiScore.FearOfFalling + wosiScore.HorseAround + wosiScore.LiftObjectsBelow + wosiScore.OverheadPain + wosiScore.ProtectArm + wosiScore.RangeOfMotion + wosiScore.ShoulderFrustration + wosiScore.ShoulderWorse + wosiScore.SleepDifficult + wosiScore.Sports + wosiScore.SportsOrWork + wosiScore.Stiffness + wosiScore.Weakness;
                 context.Add(wosiScore);
+                await context.SaveChangesAsync();
+
+                var activeVisit = (from visit in context.Visit
+                                   where visit.IsActive == true
+                                   select visit).Single();
+
+                activeVisit.SpadiScoreId = wosiScore.WosiScoreId;
+                context.Update(activeVisit);
                 await context.SaveChangesAsync();
 
                 return RedirectToAction("Library", new RouteValueDictionary(new { Controller = "Physician", Action = "Library" }));

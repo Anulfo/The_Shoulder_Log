@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-The_Shoulder_Log-56c21e8c-35e6-405c-900d-f96310ac52ed",
 
   "dependencies": {
@@ -41,10 +41,13 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "System.Linq.Parallel": "4.0.1",
+    "System.Linq": "4.3.0",
+    "System.Linq.Queryable": "4.3.0"
   },
 
   "tools": {

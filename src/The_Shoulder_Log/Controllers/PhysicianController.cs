@@ -7,6 +7,9 @@ using The_Shoulder_Log.Models;
 using Microsoft.AspNetCore.Identity;
 using The_Shoulder_Log.Data;
 using The_Shoulder_Log.Models.PhysicianViewModels;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using System.Collections;
 
 namespace The_Shoulder_Log.Controllers
 {
@@ -27,32 +30,104 @@ namespace The_Shoulder_Log.Controllers
         public async Task<IActionResult> Library()
         {
             var physician = await GetCurrentUserAsync();
-            string physicianId = physician.Id;
             var model = new LibraryViewModel();
 
-            var doctorsPatients = (from patient in context.RegisterPatient
-                                    join visit in context.Visit on patient.RegisterPatientId equals visit.RegisterPatientId
-                                    where User.Identity == physician
-                                    select new RegisterPatient
-                                         {
-                                             RegisterPatientId = patient.RegisterPatientId,
-                                             LastName = patient.LastName,
-                                             FirstName = patient.FirstName,
-                                             StreetAddress = patient.StreetAddress,
-                                             City = patient.City,
-                                             State = patient.State,
-                                             DateOfBirth = patient.DateOfBirth,
-                                             Gender = patient.Gender,
-                                             Weight = patient.Weight,
-                                             Height = patient.Height,
-                                             BloodType = patient.BloodType,
-                                             Quantity = patient.Quantity
-                                         }).ToList();
+            List<RegisterPatient> doctorPatients = await (from registerPatient in context.RegisterPatient
+                                                          join visit in context.Visit on registerPatient.RegisterPatientId equals visit.RegisterPatientId
+                                                          where visit.User.Id == physician.Id
+                                                          select new RegisterPatient()
+                                                          {
+                                                              RegisterPatientId = registerPatient.RegisterPatientId,
+                                                              LastName = registerPatient.LastName,
+                                                              FirstName = registerPatient.FirstName,
+                                                              StreetAddress = registerPatient.StreetAddress,
+                                                              City = registerPatient.City,
+                                                              State = registerPatient.State,
+                                                              DateOfBirth = registerPatient.DateOfBirth,
+                                                              Gender = registerPatient.Gender,
+                                                              Weight = registerPatient.Weight,
+                                                              Height = registerPatient.Height,
+                                                              BloodType = registerPatient.BloodType,
+                                                              Quantity = registerPatient.Quantity
+                                                          }
+                                  ).ToListAsync();
+            model.Patients = doctorPatients.ToList();
 
-            model.Patients = doctorsPatients.ToList();
             return View(model);
         }
 
+        public async Task<IActionResult> DetailedPatient(int? id)
+        {
+            var physician = await GetCurrentUserAsync();
+            var model = new DetailedPatientViewModel();
+
+            List<Visit> Visits = await (from visit in context.Visit
+                                             join registerPatient in context.RegisterPatient on visit.RegisterPatientId equals registerPatient.RegisterPatientId
+                                             where registerPatient.RegisterPatientId == id
+                                             select visit).ToListAsync();
+
+            model.Visits = Visits;
+
+            List<SpadiScore> SpadiScores = await (from spadiScore in context.SpadiScore
+                                                  join visit in context.Visit on spadiScore.SpadiScoreId equals visit.SpadiScoreId
+                                                  join registerPatient in context.RegisterPatient on visit.RegisterPatientId equals registerPatient.RegisterPatientId
+                                                  where registerPatient.RegisterPatientId == id
+                                                  select spadiScore).ToListAsync();
+
+            model.SpadiScores = SpadiScores;
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> FinalReport (int? id)
+        {
+            var phisician = await GetCurrentUserAsync();
+            var model = new FinalReportViewModel();
+
+            model.Physician = phisician;
+
+            var patient = await (from pcte in context.RegisterPatient
+                                 join visit in context.Visit on pcte.RegisterPatientId equals visit.RegisterPatientId
+                                 where visit.VisitId == id
+                                 select pcte).SingleOrDefaultAsync();
+
+            model.Patient = patient;
+
+            //Variable to store PhysicianComments form the model, to pass to the view and display it as the Clinical History
+
+            ClinicalHist clinicHist = await (from clinic in context.ClinicalHist
+                                    join visit in context.Visit on clinic.ClinicalHistId equals visit.ClinicalHistId
+                                    where visit.VisitId == id
+                                    select clinic).SingleOrDefaultAsync();
+            model.ClinicHist = clinicHist;
+
+            PhysicalTest physicalTest = await (from physicalTes in context.PhysicalTest
+                                      join visit in context.Visit on physicalTes.PhysicalTestId equals visit.PhysicalTestId
+                                      where visit.VisitId == id
+                                      select physicalTes).SingleOrDefaultAsync();
+
+            model.PhysicalTest = physicalTest;
+
+
+
+            Management management = await (from mng in context.Management
+                                    join visit in context.Visit on mng.ManagementId equals visit.ManagementId
+                                    where visit.VisitId == id
+                                    select mng).SingleOrDefaultAsync();
+
+            model.Management = management;
+
+            SpadiScore spadiScore = await (from spadiscor in context.SpadiScore
+                                    join visit in context.Visit on spadiscor.SpadiScoreId equals visit.SpadiScoreId
+                                    where visit.VisitId == id
+                                    select spadiscor).SingleOrDefaultAsync();
+
+            model.SpadiScore = spadiScore;
+
+            return View(model);
+
+
+        }
         public void CalculateNumberOfVisits(RegisterPatient registerPatient)
         {
             int Quantity = context.Visit.Count();

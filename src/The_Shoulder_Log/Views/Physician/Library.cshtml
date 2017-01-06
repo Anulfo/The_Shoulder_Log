@@ -1,5 +1,4 @@
 ﻿@model The_Shoulder_Log.Models.PhysicianViewModels.LibraryViewModel
-@using The_Shoulder_Log.Models;
 
 @inject SignInManager<ApplicationUser> SignInManager
 
@@ -26,7 +25,7 @@ else
                     @foreach (RegisterPatient patient in Model.Patients)
                     {
                         <tr>
-                            <td>>@Html.DisplayFor(modelPatient => patient.LastName)</td>
+                            <td><a asp-controller="Physician" asp-action="DetailedPatient" asp-route-id="@patient.RegisterPatientId" >@Html.DisplayFor(modelPatient => patient.LastName)</a></td>
                             @*<td>(@Html.DisplayFor(modelPatient => patient.Quantity))</td>*@
                         </tr>
                     }

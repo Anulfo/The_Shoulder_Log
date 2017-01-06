@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace The_Shoulder_Log.Models.PhysicianViewModels
 {
-    public class LibraryViewModel
+    public class DetailedPatientViewModel
     {
-        public List<RegisterPatient> Patients { get; set; }
         public List<Visit> Visits { get; set; }
+
+        public List<SpadiScore> SpadiScores { get; set; }
+
     }
 }

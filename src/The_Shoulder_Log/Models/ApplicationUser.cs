@@ -10,6 +10,8 @@ namespace The_Shoulder_Log.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser User { get; set; }
+
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

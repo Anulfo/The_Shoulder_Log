@@ -1,0 +1,49 @@
+@model The_Shoulder_Log.Models.PhysicianViewModels.DetailedPatientViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "DetailedPatient";
+}
+<div class="row text-center">
+    <h2>DetailedPatient</h2>
+</div>
+
+<div class="row">
+    <div class="col-lg-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Visit visit in Model.Visits) {
+                <tr>
+                    <td>
+                       <a asp-controller="Physician" asp-action="FinalReport" asp-route-id="@visit.VisitId "> @Html.DisplayFor(modelVisit => visit.VisitDate)</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Spadi</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (SpadiScore spadiscore in Model.SpadiScores)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelSpadiScores => spadiscore.SpadiFinalScore)
+                </td>
+            </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
