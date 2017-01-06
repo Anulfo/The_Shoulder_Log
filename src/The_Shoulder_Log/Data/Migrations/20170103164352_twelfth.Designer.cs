@@ -8,9 +8,10 @@ using The_Shoulder_Log.Data;
 namespace The_Shoulder_Log.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170103164352_twelfth")]
+    partial class twelfth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -166,8 +167,6 @@ namespace The_Shoulder_Log.Data.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<string>("UserId");
-
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
@@ -179,8 +178,6 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasName("UserNameIndex");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -381,7 +378,7 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.Property<string>("UserId");
 
                     b.Property<DateTime>("VisitDate")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<int?>("WosiScoreId");
 
@@ -504,13 +501,6 @@ namespace The_Shoulder_Log.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("The_Shoulder_Log.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("The_Shoulder_Log.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("The_Shoulder_Log.Models.Visit", b =>

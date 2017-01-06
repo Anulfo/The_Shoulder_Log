@@ -1,0 +1,40 @@
+﻿@model The_Shoulder_Log.Models.PhysicianViewModels.LibraryViewModel
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+@if (!SignInManager.IsSignedIn(User))
+{
+    <h2>Please Log in to Start Shopping </h2>
+}
+
+else
+{
+    <div class="row">
+        <h1>Your Patients</h1>
+
+        @if (Model.Patients != null)
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Patient Last Name</th>
+                        <th>Number of Visits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (RegisterPatient patient in Model.Patients)
+                    {
+                        <tr>
+                            <td><a asp-controller="Patient" asp-action="PatientClinicHist" asp-route-id="@patient.RegisterPatientId">Add New Visit</a></td>
+                            <td><a asp-controller="Physician" asp-action="DetailedPatient" asp-route-id="@patient.RegisterPatientId" >@Html.DisplayFor(modelPatient => patient.LastName)</a></td>
+                            @*<td>(@Html.DisplayFor(modelPatient => patient.Quantity))</td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    <div class="row center">
+        <a class="center" asp-controller="Patient" asp-action="PatientRegister"><input type="button" class="btn-primary" value="Create New Record" /></a>
+    </div>
+}

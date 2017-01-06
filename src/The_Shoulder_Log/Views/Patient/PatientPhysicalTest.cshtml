@@ -1,0 +1,97 @@
+@model The_Shoulder_Log.Models.PatientViewModels.PatientPhysicalTestViewModel
+
+@{
+    ViewData["Title"] = "PatientPhysicalTest";
+}
+
+<h2>PatientPhysicalTest</h2>
+
+<form asp-action="PatientPhysicalTest">
+    <div class="form-horizontal">
+        <h4>PatientPhysicalTestViewModel</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Abduction" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Abduction" class="form-control" />
+                <span asp-validation-for="Abduction" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="AprehensionTest" />
+                    <label asp-for="AprehensionTest"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="DrawerTest" />
+                    <label asp-for="DrawerTest"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ExternalRotation" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ExternalRotation" class="form-control" />
+                <span asp-validation-for="ExternalRotation" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InternalRotation" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="InternalRotation" class="form-control" />
+                <span asp-validation-for="InternalRotation" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="JobTest" />
+                    <label asp-for="JobTest"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="NapoleonTest" />
+                    <label asp-for="NapoleonTest"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="SpeedTest" />
+                    <label asp-for="SpeedTest"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="SulcusTest" />
+                    <label asp-for="SulcusTest"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save Physical Exam" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Physician" asp-action="Library">Back to Library</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

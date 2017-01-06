@@ -8,9 +8,10 @@ using The_Shoulder_Log.Data;
 namespace The_Shoulder_Log.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161230014104_fifth")]
+    partial class fifth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -166,8 +167,6 @@ namespace The_Shoulder_Log.Data.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<string>("UserId");
-
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
@@ -179,8 +178,6 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasName("UserNameIndex");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -216,8 +213,12 @@ namespace The_Shoulder_Log.Data.Migrations
 
                     b.Property<string>("SocialHistory");
 
+                    b.Property<int>("SpadiScore");
+
                     b.Property<string>("TraumaticAntc")
                         .IsRequired();
+
+                    b.Property<int>("WosiScore");
 
                     b.HasKey("ClinicalHistId");
 
@@ -258,6 +259,9 @@ namespace The_Shoulder_Log.Data.Migrations
 
                     b.Property<bool>("AprehensionTest");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<bool>("DrawerTest");
 
                     b.Property<int>("ExternalRotation");
@@ -275,6 +279,8 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.HasKey("PhysicalTestId");
 
                     b.ToTable("PhysicalTest");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("PhysicalTest");
                 });
 
             modelBuilder.Entity("The_Shoulder_Log.Models.RegisterPatient", b =>
@@ -318,49 +324,6 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.ToTable("RegisterPatient");
                 });
 
-            modelBuilder.Entity("The_Shoulder_Log.Models.SpadiScore", b =>
-                {
-                    b.Property<int>("SpadiScoreId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CarryingObject");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
-                    b.Property<int>("LyingOnSide");
-
-                    b.Property<int>("PlacingObjectHighShelf");
-
-                    b.Property<int>("PushingArm");
-
-                    b.Property<int>("PuttingPants");
-
-                    b.Property<int>("PuttingPullover");
-
-                    b.Property<int>("PuttingShirtButtons");
-
-                    b.Property<int>("Reaching");
-
-                    b.Property<int>("RemovingBackPocket");
-
-                    b.Property<int>("SpadiFinalScore");
-
-                    b.Property<int>("TouchingNeck");
-
-                    b.Property<int>("WashingBack");
-
-                    b.Property<int>("WashingHair");
-
-                    b.Property<int>("WorstPain");
-
-                    b.HasKey("SpadiScoreId");
-
-                    b.ToTable("SpadiScore");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("SpadiScore");
-                });
-
             modelBuilder.Entity("The_Shoulder_Log.Models.Visit", b =>
                 {
                     b.Property<int>("VisitId")
@@ -368,22 +331,16 @@ namespace The_Shoulder_Log.Data.Migrations
 
                     b.Property<int>("ClinicalHistId");
 
-                    b.Property<bool>("IsActive");
-
                     b.Property<int>("ManagementId");
 
                     b.Property<int>("PhysicalTestId");
 
                     b.Property<int>("RegisterPatientId");
 
-                    b.Property<int>("SpadiScoreId");
-
                     b.Property<string>("UserId");
 
                     b.Property<DateTime>("VisitDate")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("WosiScoreId");
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.HasKey("VisitId");
 
@@ -392,81 +349,14 @@ namespace The_Shoulder_Log.Data.Migrations
                     b.ToTable("Visit");
                 });
 
-            modelBuilder.Entity("The_Shoulder_Log.Models.WosiScore", b =>
+            modelBuilder.Entity("The_Shoulder_Log.Models.PatientViewModels.PatientPhysicalTestViewModel", b =>
                 {
-                    b.Property<int>("WosiScoreId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AchingThrobbing");
-
-                    b.Property<int>("Compesation");
-
-                    b.Property<int>("ConsciousSHoulder");
-
-                    b.Property<int>("Cracking");
-
-                    b.Property<int>("DifficultyFitness");
-
-                    b.Property<int>("Discomfort");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
-                    b.Property<int>("Fatigue");
-
-                    b.Property<int>("FearOfFalling");
-
-                    b.Property<int>("HorseAround");
-
-                    b.Property<int>("LiftObjectsBelow");
-
-                    b.Property<int>("OverheadPain");
-
-                    b.Property<int>("ProtectArm");
-
-                    b.Property<int>("RangeOfMotion");
-
-                    b.Property<int>("ShoulderFrustration");
-
-                    b.Property<int>("ShoulderWorse");
-
-                    b.Property<int>("SleepDifficult");
-
-                    b.Property<int>("Sports");
-
-                    b.Property<int>("SportsOrWork");
-
-                    b.Property<int>("Stiffness");
-
-                    b.Property<int>("Weakness");
-
-                    b.Property<int>("WosiFinalScore");
-
-                    b.HasKey("WosiScoreId");
-
-                    b.ToTable("WosiScore");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("WosiScore");
-                });
-
-            modelBuilder.Entity("The_Shoulder_Log.Models.PatientViewModels.PatientSpadiScoreViewModel", b =>
-                {
-                    b.HasBaseType("The_Shoulder_Log.Models.SpadiScore");
+                    b.HasBaseType("The_Shoulder_Log.Models.PhysicalTest");
 
 
-                    b.ToTable("PatientSpadiScoreViewModel");
+                    b.ToTable("PatientPhysicalTestViewModel");
 
-                    b.HasDiscriminator().HasValue("PatientSpadiScoreViewModel");
-                });
-
-            modelBuilder.Entity("The_Shoulder_Log.Models.PatientViewModels.PatientWosiScoreViewModel", b =>
-                {
-                    b.HasBaseType("The_Shoulder_Log.Models.WosiScore");
-
-
-                    b.ToTable("PatientWosiScoreViewModel");
-
-                    b.HasDiscriminator().HasValue("PatientWosiScoreViewModel");
+                    b.HasDiscriminator().HasValue("PatientPhysicalTestViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
@@ -504,13 +394,6 @@ namespace The_Shoulder_Log.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("The_Shoulder_Log.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("The_Shoulder_Log.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("The_Shoulder_Log.Models.Visit", b =>

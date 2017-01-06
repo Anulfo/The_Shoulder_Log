@@ -1,0 +1,111 @@
+@model The_Shoulder_Log.Models.PhysicianViewModels.FinalReportViewModel
+
+
+<div class="row">
+    <h1>Final Report</h1>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+        <h2>Physician</h2>
+    <h4>@Model.Physician.FirstName @Model.Physician.LastName</h4>
+    </div>
+    <div class="col-lg-6"></div>
+    <div class="col-lg-4">
+        <h2>SPADI Score</h2>
+        <h3>@Model.SpadiScore.SpadiFinalScore</h3>
+    </div>
+</div>
+<div class="row">
+    <h2>Patient Name</h2>
+    <h4>@Model.Patient.FirstName @Model.Patient.LastName</h4>
+</div>
+<div class="row">
+    <h3>Physician Notes</h3>
+    <p>@Model.ClinicHist.PhysicianComments</p>
+</div>
+<div class="row">
+    <h3>Physical Test</h3>
+    <h4>Functional Range</h4>
+    <div class="col-lg-2">
+        <h4>
+            Abduction @Model.PhysicalTest.Abduction
+        </h4>
+    </div>
+    <div class="col-lg-2">
+        <h4>
+            External Rotation @Model.PhysicalTest.ExternalRotation
+        </h4>
+    </div>
+    <div class="col-lg-2">
+        <h4>
+            Internal Rotation @Model.PhysicalTest.InternalRotation
+        </h4>
+    </div>
+    <div class="col-lg-6"></div>
+</div>
+<div class="row">
+    <h4>Special Tests</h4>
+    <div class="col-lg-4">
+        <h4>Job Test</h4>
+        @if (Model.PhysicalTest.JobTest == true)
+        {
+            <p>+</p>
+        }
+        else
+        {
+            <p>-</p>
+        }
+        <h4>Speed Test</h4>
+        @if (Model.PhysicalTest.SpeedTest == true)
+        {
+            <p>+</p>
+        }
+        else
+        {
+            <p>-</p>
+        }
+    </div>
+    <div class="col-lg-4">
+        <h4>Napoleon Test</h4>
+        @if (Model.PhysicalTest.NapoleonTest == true)
+        {
+            <p>+</p>
+        }
+        else
+        {
+            <p>-</p>
+        }
+        <h4>Aprehension Test</h4>
+        @if (Model.PhysicalTest.AprehensionTest == true)
+        {
+            <p>+</p>
+        }
+        else
+        {
+            <p>-</p>
+        }
+    </div>
+    <div class="col-lg-4">
+        <h4>Drawer Test</h4>
+        @if (Model.PhysicalTest.DrawerTest == true)
+        {
+            <p>+</p>
+        }
+        else
+        {
+            <p>-</p>
+        }
+        <h4>Sulcus Test</h4>
+        @if (Model.PhysicalTest.SulcusTest == true)
+        {
+            <p>+</p>
+        }
+        else
+        {
+            <p>-</p>
+        }
+    </div>
+</div>
