@@ -50,8 +50,9 @@ namespace The_Shoulder_Log.Controllers
                                                               BloodType = registerPatient.BloodType,
                                                               Quantity = registerPatient.Quantity
                                                           }
-                                  ).ToListAsync();
-            model.Patients = doctorPatients.ToList();
+                                  ).Distinct().ToListAsync();
+
+            model.Patients = doctorPatients;
 
             return View(model);
         }
