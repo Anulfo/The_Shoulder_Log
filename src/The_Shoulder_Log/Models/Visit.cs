@@ -29,6 +29,8 @@ namespace The_Shoulder_Log.Models
 
         public bool IsActive { get; set;}
 
+        public bool FirstVisit { get; set; }
+
         [Required]
         [DataType(DataType.Date)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

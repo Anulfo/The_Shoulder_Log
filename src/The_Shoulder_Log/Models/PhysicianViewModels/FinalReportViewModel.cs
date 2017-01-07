@@ -7,6 +7,7 @@ namespace The_Shoulder_Log.Models.PhysicianViewModels
 {
     public class FinalReportViewModel
     {
+
         public RegisterPatient Patient { get; set; }
 
         public ClinicalHist ClinicHist { get; set; }
@@ -18,5 +19,9 @@ namespace The_Shoulder_Log.Models.PhysicianViewModels
         public SpadiScore SpadiScore { get; set; }
 
         public ApplicationUser Physician { get; set; }
+        
+        public ClinicalHist FirstClinicalHist { get; set; }
+
+        public Visit CurrentVisit { get; set; }
     }
 }

@@ -8,23 +8,35 @@
     </dl>
 </div>
 <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-6">
         <h2>Physician</h2>
-    <h4>@Model.Physician.FirstName @Model.Physician.LastName</h4>
+        <h4>@Model.Physician.FirstName @Model.Physician.LastName</h4>
     </div>
-    <div class="col-lg-6"></div>
-    <div class="col-lg-4">
+    <div class="col-lg-6">
         <h2>SPADI Score</h2>
         <h3>@Model.SpadiScore.SpadiFinalScore</h3>
     </div>
 </div>
 <div class="row">
-    <h2>Patient Name</h2>
-    <h4>@Model.Patient.FirstName @Model.Patient.LastName</h4>
-</div>
-<div class="row">
-    <h3>Physician Notes</h3>
-    <p>@Model.ClinicHist.PhysicianComments</p>
+    <div class="col-lg-6">
+        <h3>Patient Name</h3>
+        <h4>@Model.Patient.FirstName @Model.Patient.LastName</h4>
+        <h3>Patient Original History</h3>
+        <p>@Model.FirstClinicalHist.PhysicianComments</p>
+        @if(Model.CurrentVisit.FirstVisit != true)
+        {
+        <h3>Physician Notes</h3>
+        <p>@Model.ClinicHist.PhysicianComments</p>
+        }
+    </div>
+    <div class="col-lg-6">
+        <h3>Management</h3>
+        <p>Diagnosis : @Model.Management.Diagnosis</p>
+        <p>Follow Up Studies :@Model.Management.FollowUpStudies</p>
+        <p>Medication : @Model.Management.Medication</p>
+        <p>Rehabilitation : @Model.Management.Rehabilitation</p>
+        <p>Surgical Treatment : @Model.Management.SurgicalTreatment</p>
+    </div>
 </div>
 <div class="row">
     <h3>Physical Test</h3>

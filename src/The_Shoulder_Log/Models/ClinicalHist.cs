@@ -12,27 +12,20 @@ namespace The_Shoulder_Log.Models
 
         public int ClinicalHistId { get; set; }
 
-        [Required]
 
         public string PainfulShoulder { get; set; }
 
-        [Required]
 
-        public DateTime? PainDate { get; set; }
+        public DateTime PainDate { get; set; }
 
-        [Required]
 
         public string PainActivity { get; set; }
 
-        [Required]
 
         public string TraumaticAntc { get; set; }
 
-        //[Required]
 
         public bool HasBeenDislocated { get; set; }
-
-        [Required]
 
         public string PhysicianComments { get; set; }
 

@@ -44,7 +44,7 @@ namespace The_Shoulder_Log.Controllers
             {
                 context.Add(registerPatient);
                 await context.SaveChangesAsync();
-                Visit visit = new Visit() { RegisterPatientId = registerPatient.RegisterPatientId, IsActive = true, VisitDate = DateTime.Now, User = physician};
+                Visit visit = new Visit() { RegisterPatientId = registerPatient.RegisterPatientId, IsActive = true, VisitDate = DateTime.Now, User = physician, FirstVisit = true};
                 context.Visit.Add(visit);
                 await context.SaveChangesAsync();
                 return RedirectToAction("PatientClinicHist", new RouteValueDictionary(new { controller = "Patient", action = "PatientClinicHist" }));
@@ -72,7 +72,7 @@ namespace The_Shoulder_Log.Controllers
                             where visit.IsActive == true
                             select visit).SingleOrDefault();
 
-            if (ModelState.IsValid && activeVisit != null)
+            if (ModelState.IsValid && activeVisit != null && activeVisit.FirstVisit != false)
             {
                 context.Add(clinicalHist);
                 await context.SaveChangesAsync();
@@ -86,7 +86,7 @@ namespace The_Shoulder_Log.Controllers
                 context.Add(clinicalHist);
                 await context.SaveChangesAsync();
                 var registerPatientFromRoute = Convert.ToInt32(Url.ActionContext.RouteData.Values["id"].ToString());
-                Visit lateActiveNewVisit = new Visit() { RegisterPatientId = registerPatientFromRoute, ClinicalHistId = clinicalHist.ClinicalHistId, IsActive = true, VisitDate = DateTime.Now, User = physician };
+                Visit lateActiveNewVisit = new Visit() { RegisterPatientId = registerPatientFromRoute, ClinicalHistId = clinicalHist.ClinicalHistId, IsActive = true, VisitDate = DateTime.Now, User = physician, FirstVisit = false };
                 context.Add(lateActiveNewVisit);
                 await context.SaveChangesAsync();
 
