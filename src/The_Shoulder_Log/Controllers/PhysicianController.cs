@@ -94,7 +94,18 @@ namespace The_Shoulder_Log.Controllers
 
             model.Patient = patient;
 
-            //Variable to store PhysicianComments form the model, to pass to the view and display it as the Clinical History
+            var visits = await (from visit in context.Visit
+                                    join registerPatient in context.RegisterPatient on visit.VisitId equals registerPatient.RegisterPatientId
+                                    select visit).ToListAsync();
+
+            var firstVisit = visits.Min(x => x.VisitId);
+
+            var FirstClinicHist = await (from clinic in context.ClinicalHist
+                                         join visit in context.Visit on clinic.ClinicalHistId equals visit.ClinicalHistId
+                                         where visit.VisitId == firstVisit
+                                         select clinic).SingleOrDefaultAsync();
+
+            //Variable to store PhysicianComments from the model, to pass to the view and display it as the Clinical History
 
             ClinicalHist clinicHist = await (from clinic in context.ClinicalHist
                                     join visit in context.Visit on clinic.ClinicalHistId equals visit.ClinicalHistId
