@@ -25,9 +25,8 @@ else
                     @foreach (RegisterPatient patient in Model.Patients)
                     {
                         <tr>
-                            <td><a asp-controller="Patient" asp-action="PatientClinicHist" asp-route-id="@patient.RegisterPatientId">Add New Visit</a></td>
+                            <td><a asp-controller="Patient" asp-action="PatientLateClinicHist" asp-route-id="@patient.RegisterPatientId">Add New Visit</a></td>
                             <td><a asp-controller="Physician" asp-action="DetailedPatient" asp-route-id="@patient.RegisterPatientId" >@Html.DisplayFor(modelPatient => patient.LastName)</a></td>
-                            @*<td>(@Html.DisplayFor(modelPatient => patient.Quantity))</td>*@
                         </tr>
                     }
                 </tbody>
