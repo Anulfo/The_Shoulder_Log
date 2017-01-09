@@ -55,5 +55,45 @@ textarea {
 }
 
 .btn-default {
-    box-shadow: 10px 5px 5px black
+    /*box-shadow: 10px 5px 5px black;*/
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
+.form-control {
+    border-radius : 0;
+    border-top : 0;
+    border-right : 0;
+    border-left : 0;
+    border-bottom: 1px solid black;
+}
+
+.no-border {
+    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+}
+
+input[type=text] {
+             display: block;
+             margin : auto;
+}
+
+input[type=password] {
+    margin: auto;
+}
+
+input[type=Email] {
+    margin: auto;
+}
+
+.patient {
+    color : black;
+}
+
+a {
+    color : black;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
