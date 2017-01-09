@@ -48,3 +48,12 @@ textarea {
     display: none
   }
 }
+
+.spacer {
+    height: 100px;
+    width: 100%;
+}
+
+.btn-default {
+    box-shadow: 10px 5px 5px black
+}
