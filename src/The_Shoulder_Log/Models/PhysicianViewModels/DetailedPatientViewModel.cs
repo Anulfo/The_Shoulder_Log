@@ -11,5 +11,7 @@ namespace The_Shoulder_Log.Models.PhysicianViewModels
 
         public List<SpadiScore> SpadiScores { get; set; }
 
+        public RegisterPatient CurrentPatient { get; set; }
+
     }
 }

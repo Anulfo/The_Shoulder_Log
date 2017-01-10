@@ -14,26 +14,30 @@
         </div>
         <div class="row spacer"></div>
         <div class="row">
-            <h3>Patients</h3>
             <br> <br>
+            <div class="col-lg-4"></div>
             @if (Model.Patients != null)
             {
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                         @foreach (RegisterPatient patient in Model.Patients)
                         {
                             <div class="row">
                                 <div class="col-lg-6">
-                                <a asp-controller="Physician" asp-action="DetailedPatient" asp-route-id="@patient.RegisterPatientId" >@Html.DisplayFor(modelPatient => patient.LastName)</a>
+                                <a asp-controller="Physician" asp-action="DetailedPatient" asp-route-id="@patient.RegisterPatientId">@Html.DisplayFor(modelPatient => patient.LastName)</a>
                                 </div>
-                                <div class="col-lg-6">
-                                    <a asp-controller="Patient" asp-action="PatientLateClinicHist" asp-route-id="@patient.RegisterPatientId"><input type="button" class="btn btn-default" value="New Visit" /></a>
+                                <div class="col-lg-3">
+                                    <a asp-controller="Patient" asp-action="PatientLateClinicHist" asp-route-id="@patient.RegisterPatientId"><input type="button" class="btn btn-xs " value="New Visit"/></a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a asp-controller="Physician" asp-action="Delete" asp-route-id="@patient.RegisterPatientId"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                                 </div>
                             </div>
                         }
                 </div>
-                <div class="col-lg-6"></div>
             }
+            <div class="col-lg-4"></div>
         </div>
+        <br> <br>
         <div class="row text-center">
             <a class="center" asp-controller="Patient" asp-action="PatientRegister"><input type="button" class=" btn btn-default" value="Create New Record" /></a>
         </div>

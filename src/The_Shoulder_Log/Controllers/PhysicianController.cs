@@ -10,6 +10,7 @@ using The_Shoulder_Log.Models.PhysicianViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Collections;
+using Microsoft.AspNetCore.Routing;
 
 namespace The_Shoulder_Log.Controllers
 {
@@ -50,7 +51,7 @@ namespace The_Shoulder_Log.Controllers
                                                               BloodType = registerPatient.BloodType,
                                                               Quantity = registerPatient.Quantity
                                                           }
-                                  ).Distinct().ToListAsync();
+                                  ).OrderBy(p => p.LastName).Distinct().ToListAsync();
 
             model.Patients = doctorPatients;
 
@@ -62,10 +63,16 @@ namespace The_Shoulder_Log.Controllers
             var physician = await GetCurrentUserAsync();
             var model = new DetailedPatientViewModel();
 
-            List<Visit> Visits = await (from visit in context.Visit
-                                             join registerPatient in context.RegisterPatient on visit.RegisterPatientId equals registerPatient.RegisterPatientId
-                                             where registerPatient.RegisterPatientId == id
-                                             select visit).ToListAsync();
+            var currentPatient = await (from patient in context.RegisterPatient
+                                     where patient.RegisterPatientId == id
+                                     select patient).SingleOrDefaultAsync();
+
+            model.CurrentPatient = currentPatient;
+
+            List < Visit > Visits = await (from visit in context.Visit
+                                           join registerPatient in context.RegisterPatient on visit.RegisterPatientId equals registerPatient.RegisterPatientId
+                                           where registerPatient.RegisterPatientId == id
+                                           select visit).ToListAsync();
 
             model.Visits = Visits;
 
@@ -148,11 +155,16 @@ namespace The_Shoulder_Log.Controllers
 
 
         }
-        public void CalculateNumberOfVisits(RegisterPatient registerPatient)
+        public async Task<IActionResult> Delete (int id)
         {
-            int Quantity = context.Visit.Count();
-            registerPatient.Quantity = Quantity;
+            var registerRecords = await (from patient in context.RegisterPatient
+                                         where patient.RegisterPatientId == id
+                                         select patient).SingleOrDefaultAsync();
 
+            context.RegisterPatient.Remove(registerRecords);
+            await context.SaveChangesAsync();
+
+            return RedirectToAction("Library", new RouteValueDictionary(new { controller = "Physician", action = "Library" }));
         }
     }
 }
