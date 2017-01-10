@@ -10,48 +10,48 @@
     </div>
     <br> <br>
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-6">
+        <div class="col-lg-2 spadiQuestion" >How is Pain when?</div>
+        <div class="col-lg-5">
             <form asp-action="PatientSpadiTest">
                 <div class="form-horizontal">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <label asp-for="CarryingObject" class="col-md-5 control-label"></label>
+                        <label asp-for="CarryingObject" class="col-md-5 control-label">Carrying Objects</label>
                         <div class="col-md-5">
                             <input asp-for="CarryingObject" class="form-control" />
                             <span asp-validation-for="CarryingObject" class="text-danger" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label asp-for="LyingOnSide" class="col-md-5 control-label"></label>
+                        <label asp-for="LyingOnSide" class="col-md-5 control-label">Lying on the involved side</label>
                         <div class="col-md-5">
                             <input asp-for="LyingOnSide" class="form-control" />
                             <span asp-validation-for="LyingOnSide" class="text-danger" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PlacingObjectHighShelf" class="col-md-5 control-label"></label>
+                        <label asp-for="PlacingObjectHighShelf" class="col-md-5 control-label">Placing objects on high shelfs</label>
                         <div class="col-md-5">
                             <input asp-for="PlacingObjectHighShelf" class="form-control" />
                             <span asp-validation-for="PlacingObjectHighShelf" class="text-danger" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PushingArm" class="col-md-5 control-label"></label>
+                        <label asp-for="PushingArm" class="col-md-5 control-label">Pushing with the involved arm</label>
                         <div class="col-md-5">
                             <input asp-for="PushingArm" class="form-control" />
                             <span asp-validation-for="PushingArm" class="text-danger" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PuttingPants" class="col-md-5 control-label"></label>
+                        <label asp-for="PuttingPants" class="col-md-5 control-label">Putting on your pants</label>
                         <div class="col-md-5">
                             <input asp-for="PuttingPants" class="form-control" />
                             <span asp-validation-for="PuttingPants" class="text-danger" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PuttingPullover" class="col-md-5 control-label"></label>
+                        <label asp-for="PuttingPullover" class="col-md-5 control-label">Putting a tshirt o pullover on</label>
                         <div class="col-md-5">
                             <input asp-for="PuttingPullover" class="form-control" />
                             <span asp-validation-for="PuttingPullover" class="text-danger" />
@@ -71,6 +71,13 @@
                             <span asp-validation-for="Reaching" class="text-danger" />
                         </div>
                     </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-5">
+            <form asp-action="PatientSpadiTest">
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="RemovingBackPocket" class="col-md-5 control-label"></label>
                         <div class="col-md-5">
@@ -108,17 +115,15 @@
                     </div>
                     <br /> <br />
                     <div class="form-group">
-                        <div class="col-md-offset-5 col-md-5">
+                        <div class="row text-center">
                             <a asp-controller="Patient" asp-action="PatientSpadiTest"><input type="submit" value="Save Spadi Test" class="btn btn-default" /></a>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="col-lg-4"></div>
-
-       
     </div>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
