@@ -4,120 +4,123 @@
     ViewData["Title"] = "PatientSpadiTest";
 }
 
-<h2>PatientSpadiTest</h2>
-
-<form asp-action="PatientSpadiTest">
-    <div class="form-horizontal">
-        <h4>PatientSpadiScoreViewModel</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="CarryingObject" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CarryingObject" class="form-control" />
-                <span asp-validation-for="CarryingObject" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LyingOnSide" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LyingOnSide" class="form-control" />
-                <span asp-validation-for="LyingOnSide" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PlacingObjectHighShelf" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PlacingObjectHighShelf" class="form-control" />
-                <span asp-validation-for="PlacingObjectHighShelf" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PushingArm" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PushingArm" class="form-control" />
-                <span asp-validation-for="PushingArm" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PuttingPants" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PuttingPants" class="form-control" />
-                <span asp-validation-for="PuttingPants" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PuttingPullover" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PuttingPullover" class="form-control" />
-                <span asp-validation-for="PuttingPullover" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PuttingShirtButtons" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PuttingShirtButtons" class="form-control" />
-                <span asp-validation-for="PuttingShirtButtons" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Reaching" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Reaching" class="form-control" />
-                <span asp-validation-for="Reaching" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="RemovingBackPocket" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="RemovingBackPocket" class="form-control" />
-                <span asp-validation-for="RemovingBackPocket" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="TouchingNeck" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="TouchingNeck" class="form-control" />
-                <span asp-validation-for="TouchingNeck" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="WashingBack" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="WashingBack" class="form-control" />
-                <span asp-validation-for="WashingBack" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="WashingHair" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="WashingHair" class="form-control" />
-                <span asp-validation-for="WashingHair" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="WorstPain" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="WorstPain" class="form-control" />
-                <span asp-validation-for="WorstPain" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <a asp-controller="Patient" asp-action="PatientSpadiTest"><input type="submit" value="Save Spadi Test" class="btn btn-default" /></a>
-            </div>
-        </div>
+<div class="container">
+    <div class="row text-center">
+        <h2>SPADI Test</h2>
     </div>
-</form>
-<Slider Name="RectangleHeight" Margin="10, 0, 0, 0"
-        Width="100" Orientation="Horizontal" HorizontalAlignment="Left"
-        Value="50" Minimum="0" Maximum="200"
-        SmallChange="1" LargeChange="10"
-        TickPlacement="BottomRight" TickFrequency="10"/>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <br> <br>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-6">
+            <form asp-action="PatientSpadiTest">
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CarryingObject" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="CarryingObject" class="form-control" />
+                            <span asp-validation-for="CarryingObject" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LyingOnSide" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="LyingOnSide" class="form-control" />
+                            <span asp-validation-for="LyingOnSide" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PlacingObjectHighShelf" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="PlacingObjectHighShelf" class="form-control" />
+                            <span asp-validation-for="PlacingObjectHighShelf" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PushingArm" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="PushingArm" class="form-control" />
+                            <span asp-validation-for="PushingArm" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PuttingPants" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="PuttingPants" class="form-control" />
+                            <span asp-validation-for="PuttingPants" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PuttingPullover" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="PuttingPullover" class="form-control" />
+                            <span asp-validation-for="PuttingPullover" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PuttingShirtButtons" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="PuttingShirtButtons" class="form-control" />
+                            <span asp-validation-for="PuttingShirtButtons" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reaching" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="Reaching" class="form-control" />
+                            <span asp-validation-for="Reaching" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RemovingBackPocket" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="RemovingBackPocket" class="form-control" />
+                            <span asp-validation-for="RemovingBackPocket" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TouchingNeck" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="TouchingNeck" class="form-control" />
+                            <span asp-validation-for="TouchingNeck" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="WashingBack" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="WashingBack" class="form-control" />
+                            <span asp-validation-for="WashingBack" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="WashingHair" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="WashingHair" class="form-control" />
+                            <span asp-validation-for="WashingHair" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="WorstPain" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="WorstPain" class="form-control" />
+                            <span asp-validation-for="WorstPain" class="text-danger" />
+                        </div>
+                    </div>
+                    <br /> <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-5">
+                            <a asp-controller="Patient" asp-action="PatientSpadiTest"><input type="submit" value="Save Spadi Test" class="btn btn-default" /></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+
+       
+    </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</div>

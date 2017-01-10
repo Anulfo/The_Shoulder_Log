@@ -95,7 +95,7 @@ namespace The_Shoulder_Log.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PatientLateClinicHist(PatientLateClinicHistViewModel clinicalHist)
+        public async Task<IActionResult> PatientLateClinicHist(ClinicalHist clinicalHist)
         {
             var physician = await GetCurrentUserAsync();
 

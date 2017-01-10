@@ -3,95 +3,106 @@
 @{
     ViewData["Title"] = "PatientRegister";
 }
-
-<h2>Patient Register</h2>
-
-<form asp-action="PatientRegister">
-    <div class="form-horizontal">
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="FirstName" class="col-md-2 control-label">First Name</label>
-            <div class="col-md-10">
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastName" class="col-md-2 control-label">Last Name</label>
-            <div class="col-md-10">
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="StreetAddress" class="col-md-2 control-label">Street Address</label>
-            <div class="col-md-10">
-                <input asp-for="StreetAddress" class="form-control" />
-                <span asp-validation-for="StreetAddress" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="City" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="State" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DateOfBirth" class="col-md-2 control-label">Date Of Birth</label>
-            <div class="col-md-10">
-                <input type="datetime-local" asp-for="DateOfBirth" class="form-control" />
-                <span asp-validation-for="DateOfBirth" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Gender" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Gender" class="form-control" />
-                <span asp-validation-for="Gender" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="BloodType" class="col-md-2 control-label">Blood Type</label>
-            <div class="col-md-10">
-                <input asp-for="BloodType" class="form-control" />
-                <span asp-validation-for="BloodType" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Height" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Height" class="form-control" />
-                <span asp-validation-for="Height" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Weight" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Weight" class="form-control" />
-                <span asp-validation-for="Weight" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <a asp-controller="Patient" asp-action="PatientRegister"><input type="submit" value="Register New Patient" class="btn btn-default" /></a>
-            </div>
-        </div>
+<div class="container">
+    <div class="row text-center">
+        <h2>Patient Registration</h2>
     </div>
-</form>
+    <br> <br>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-6">
+        <form asp-action="PatientRegister">
+            <div class="form-horizontal">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                        <label asp-for="FirstName" class="control-label col-md-5">First Name</label>
+                        <div class="col-md-5">
+                            <input asp-for="FirstName" class="form-control"/>
+                            <span asp-validation-for="FirstName" class="text-danger" />
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="col-md-5 control-label">Last Name</label>
+                    <div class="col-md-5">
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StreetAddress" class="col-md-5 control-label">Street Address</label>
+                    <div class="col-md-5">
+                        <input asp-for="StreetAddress" class="form-control" />
+                        <span asp-validation-for="StreetAddress" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="col-md-5 control-label"></label>
+                    <div class="col-md-5">
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="State" class="col-md-5 control-label"></label>
+                    <div class="col-md-5">
+                        <input asp-for="State" class="form-control" />
+                        <span asp-validation-for="State" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="col-md-5 control-label">Date Of Birth</label>
+                    <div class="col-md-5">
+                        <input type="datetime-local" asp-for="DateOfBirth" class="form-control" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Gender" class="col-md-5 control-label"></label>
+                    <div class="col-md-5">
+                        <input asp-for="Gender" class="form-control" />
+                        <span asp-validation-for="Gender" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BloodType" class="col-md-5 control-label">Blood Type</label>
+                    <div class="col-md-5">
+                        <input asp-for="BloodType" class="form-control" />
+                        <span asp-validation-for="BloodType" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Height" class="col-md-5 control-label"></label>
+                    <div class="col-md-5">
+                        <input asp-for="Height" class="form-control" />
+                        <span asp-validation-for="Height" class="text-danger" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Weight" class="col-md-5 control-label"></label>
+                    <div class="col-md-5">
+                        <input asp-for="Weight" class="form-control" />
+                        <span asp-validation-for="Weight" class="text-danger" />
+                    </div>
+                </div>
+                <br> <br>
+                <div class="row text-center">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <a asp-controller="Patient" asp-action="PatientRegister"><input type="submit" value="Register New Patient" class="btn btn-default" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
 
-<div>
-    <a asp-controller="Physician"asp-action="Library">Back to the Library</a>
-</div>
+    <div class="row">
+        <a asp-controller="Physician"asp-action="Library">Back to the Library</a>
+    </div> 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</div>

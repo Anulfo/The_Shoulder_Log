@@ -17,6 +17,10 @@ textarea {
     max-width: 280px;
 }
 
+/*input {
+    min-width: 100%;
+}*/
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -68,20 +72,34 @@ textarea {
 }
 
 .no-border {
-    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+    box-shadow: none; 
 }
 
 input[type=text] {
-             display: block;
-             margin : auto;
+    display: block;
+    margin : auto;
+    box-shadow: none; 
 }
 
 input[type=password] {
     margin: auto;
+    box-shadow: none; 
+
 }
 
 input[type=Email] {
     margin: auto;
+    box-shadow: none; 
+}
+
+input[type=number] {
+    margin: auto;
+    box-shadow: none; 
+}
+
+input[type=datetime-local] {
+    margin: auto;
+    box-shadow: none; 
 }
 
 .patient {
@@ -95,5 +113,13 @@ a {
 
 a:hover{
     text-decoration:none;
+}
+
+.registerPatient {
+    text-align : center;
+}
+
+.control-label {
+    text-align:justify;
 }
 
