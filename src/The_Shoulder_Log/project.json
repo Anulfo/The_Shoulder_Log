@@ -47,7 +47,8 @@
     },
     "System.Linq.Parallel": "4.0.1",
     "System.Linq": "4.3.0",
-    "System.Linq.Queryable": "4.3.0"
+    "System.Linq.Queryable": "4.3.0",
+    "bootstrap": "3.3.7"
   },
 
   "tools": {

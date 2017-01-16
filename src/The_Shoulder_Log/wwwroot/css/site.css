@@ -17,6 +17,10 @@ textarea {
     max-width: 280px;
 }
 
+/*input {
+    min-width: 100%;
+}*/
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -47,4 +51,84 @@ textarea {
   .carousel-caption {
     display: none
   }
+}
+
+.spacer {
+    height: 100px;
+    width: 100%;
+}
+
+.btn-default {
+    /*box-shadow: 10px 5px 5px black;*/
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+    border-radius : 0;
+    border-top : 0;
+    border-right : 0;
+    border-left : 0;
+    border-bottom: 1px solid black;
+}
+
+.no-border {
+    box-shadow: none; 
+}
+
+input[type=text] {
+    display: block;
+    margin : auto;
+    box-shadow: none; 
+}
+
+input[type=password] {
+    margin: auto;
+    box-shadow: none; 
+
+}
+
+input[type=Email] {
+    margin: auto;
+    box-shadow: none; 
+}
+
+input[type=number] {
+    margin: auto;
+    box-shadow: none; 
+}
+
+input[type=datetime-local] {
+    margin: auto;
+    box-shadow: none; 
+}
+
+.patient {
+    color : black;
+}
+
+a {
+    color : black;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+.registerPatient {
+    text-align : center;
+}
+
+.control-label {
+    text-align:justify;
+}
+
+.spadiQuestion {
+    font-family : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size : 3em;
+    color : royalblue ;
+}
+
+.panel {
+    box-shadow : 1px 5px 5px black;
 }

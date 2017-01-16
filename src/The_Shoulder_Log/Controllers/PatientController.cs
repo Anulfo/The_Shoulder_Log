@@ -83,15 +83,30 @@ namespace The_Shoulder_Log.Controllers
             }
             else
             {
-                context.Add(clinicalHist);
-                await context.SaveChangesAsync();
-                var registerPatientFromRoute = Convert.ToInt32(Url.ActionContext.RouteData.Values["id"].ToString());
-                Visit lateActiveNewVisit = new Visit() { RegisterPatientId = registerPatientFromRoute, ClinicalHistId = clinicalHist.ClinicalHistId, IsActive = true, VisitDate = DateTime.Now, User = physician, FirstVisit = false };
-                context.Add(lateActiveNewVisit);
-                await context.SaveChangesAsync();
-
-                return RedirectToAction("PatientPhysicalTest", new RouteValueDictionary(new { controller = "Patient", action = "PatientPhysicalTest" }));
+                return View(); 
             }
+        }
+
+        [HttpGet]
+        public IActionResult PatientLateClinicHist(int visitId)
+        {
+            var model = new PatientLateClinicHistViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PatientLateClinicHist(ClinicalHist clinicalHist)
+        {
+            var physician = await GetCurrentUserAsync();
+
+            context.Add(clinicalHist);
+            await context.SaveChangesAsync();
+            var registerPatientFromRoute = Convert.ToInt32(Url.ActionContext.RouteData.Values["id"].ToString());
+            Visit lateActiveNewVisit = new Visit() { RegisterPatientId = registerPatientFromRoute, ClinicalHistId = clinicalHist.ClinicalHistId, IsActive = true, VisitDate = DateTime.Now, User = physician, FirstVisit = false };
+            context.Add(lateActiveNewVisit);
+            await context.SaveChangesAsync();
+
+            return RedirectToAction("PatientPhysicalTest", new RouteValueDictionary(new { controller = "Patient", action = "PatientPhysicalTest" }));
         }
 
         [HttpGet]

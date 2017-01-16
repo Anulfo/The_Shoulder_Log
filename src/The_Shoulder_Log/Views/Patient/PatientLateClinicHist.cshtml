@@ -1,0 +1,44 @@
+@model The_Shoulder_Log.Models.PatientViewModels.PatientLateClinicHistViewModel
+
+@{
+    ViewData["Title"] = "PatientLateClinicHist";
+}
+
+<div class="container">
+    <div class="row text-center">
+        <h2>Clinical History</h2>
+    </div>
+    <br> <br>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form asp-action="PatientLateClinicHist">
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="PhysicianComments" class="col-lg-2 control-label"></label>
+                        <div class="col-">
+                            <input asp-for="PhysicianComments" class="form-control" />
+                            <span asp-validation-for="PhysicianComments" class="text-danger" />
+                        </div>
+                    </div>
+                    <br> <br>
+                    <div class="form-group">
+                        <div class="text-center">
+                            <a asp-controller="Patient" asp-action="PatientClinicHist"><input type="submit" value="Patient New Clinical History" class="btn btn-default" /></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+
+    <div class="row">
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</div>

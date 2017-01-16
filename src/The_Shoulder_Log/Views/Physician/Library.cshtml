@@ -2,39 +2,44 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 
-@if (!SignInManager.IsSignedIn(User))
-{
-    <h2>Please Log in to Start Shopping </h2>
-}
-
-else
-{
-    <div class="row">
-        <h1>Your Patients</h1>
-
-        @if (Model.Patients != null)
-        {
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Patient Last Name</th>
-                        <th>Number of Visits</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (RegisterPatient patient in Model.Patients)
-                    {
-                        <tr>
-                            <td><a asp-controller="Patient" asp-action="PatientClinicHist" asp-route-id="@patient.RegisterPatientId">Add New Visit</a></td>
-                            <td><a asp-controller="Physician" asp-action="DetailedPatient" asp-route-id="@patient.RegisterPatientId" >@Html.DisplayFor(modelPatient => patient.LastName)</a></td>
-                            @*<td>(@Html.DisplayFor(modelPatient => patient.Quantity))</td>*@
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        }
-    </div>
-    <div class="row center">
-        <a class="center" asp-controller="Patient" asp-action="PatientRegister"><input type="button" class="btn-primary" value="Create New Record" /></a>
-    </div>
-}
+<div class="container">
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <h2>Please Log in to Start Shopping </h2>
+    }
+    else
+    {
+        <div class="row text-center">
+            <h1>Patients Library</h1>
+        </div>
+        <div class="row spacer"></div>
+        <div class="row">
+            <br> <br>
+            <div class="col-lg-4"></div>
+            @if (Model.Patients != null)
+            {
+                <div class="col-lg-4">
+                        @foreach (RegisterPatient patient in Model.Patients)
+                        {
+                            <div class="row">
+                                <div class="col-lg-6">
+                                <a asp-controller="Physician" asp-action="DetailedPatient" asp-route-id="@patient.RegisterPatientId">@Html.DisplayFor(modelPatient => patient.LastName)</a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a asp-controller="Patient" asp-action="PatientLateClinicHist" asp-route-id="@patient.RegisterPatientId"><input type="button" class="btn btn-xs " value="New Visit"/></a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a asp-controller="Physician" asp-action="Delete" asp-route-id="@patient.RegisterPatientId"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                                </div>
+                            </div>
+                        }
+                </div>
+            }
+            <div class="col-lg-4"></div>
+        </div>
+        <br> <br>
+        <div class="row text-center">
+            <a class="center" asp-controller="Patient" asp-action="PatientRegister"><input type="button" class=" btn btn-default" value="Create New Record" /></a>
+        </div>
+    }
+</div>

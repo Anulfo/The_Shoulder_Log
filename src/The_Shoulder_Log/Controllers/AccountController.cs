@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using The_Shoulder_Log.Models;
 using The_Shoulder_Log.Models.AccountViewModels;
 using The_Shoulder_Log.Services;
+using Microsoft.AspNetCore.Routing;
 
 namespace The_Shoulder_Log.Controllers
 {
@@ -63,7 +64,7 @@ namespace The_Shoulder_Log.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Library", new RouteValueDictionary (new { controller = "Physician", action = "Library" }));
                 }
                 if (result.RequiresTwoFactor)
                 {

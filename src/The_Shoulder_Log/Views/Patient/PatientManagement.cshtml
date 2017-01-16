@@ -4,60 +4,67 @@
     ViewData["Title"] = "PatientManagement";
 }
 
-<h2>PatientManagement</h2>
-
-<form asp-action="PatientManagement">
-    <div class="form-horizontal">
-        <h4>PatientManagementViewModel</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Diagnosis" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Diagnosis" class="form-control" />
-                <span asp-validation-for="Diagnosis" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="FollowUpStudies" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="FollowUpStudies" class="form-control" />
-                <span asp-validation-for="FollowUpStudies" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Medication" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Medication" class="form-control" />
-                <span asp-validation-for="Medication" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Rehabilitation" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Rehabilitation" class="form-control" />
-                <span asp-validation-for="Rehabilitation" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="SurgicalTreatment" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="SurgicalTreatment" class="form-control" />
-                <span asp-validation-for="SurgicalTreatment" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save Management" class="btn btn-default" />
-            </div>
-        </div>
+<div class="container">
+    <div class="row text-center">
+        <h2>Patient Management</h2>
     </div>
-</form>
+    <br> <br>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-6">
+            <form asp-action="PatientManagement">
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Diagnosis" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="Diagnosis" class="form-control" />
+                            <span asp-validation-for="Diagnosis" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FollowUpStudies" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="FollowUpStudies" class="form-control" />
+                            <span asp-validation-for="FollowUpStudies" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Medication" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="Medication" class="form-control" />
+                            <span asp-validation-for="Medication" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Rehabilitation" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="Rehabilitation" class="form-control" />
+                            <span asp-validation-for="Rehabilitation" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SurgicalTreatment" class="col-md-5 control-label"></label>
+                        <div class="col-md-5">
+                            <input asp-for="SurgicalTreatment" class="form-control" />
+                            <span asp-validation-for="SurgicalTreatment" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-5">
+                            <input type="submit" value="Save Management" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    <div class="row">
+        <a asp-controller="Physician" asp-action="Library">Back to Library</a>
+    </div>
 
-<div>
-    <a asp-controller="Physician" asp-action="Library">Back to Library</a>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
