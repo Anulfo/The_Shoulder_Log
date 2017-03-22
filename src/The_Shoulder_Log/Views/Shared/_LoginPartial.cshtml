@@ -4,12 +4,24 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
+@{
+    string CurrentURL = Context.Request.Path;
+}
 <div class="container">
 @if (SignInManager.IsSignedIn(User))
     {<div class="row">
-        <div class="col-lg-2">
-            <a asp-controller="Physician" asp-action="Library" class="btn btn-default">Library</a>
-        </div>
+        @if (CurrentURL.Contains("Library"))
+        {
+            <div id="libraryButton" class="col-lg-2" display="hidden">
+                <a asp-controller="Physician" asp-action="Library" class="btn btn-default">Go To Library</a>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-2">
+                <a asp-controller="Physician" asp-action="Library" class="btn btn-default">Go To Library</a>
+            </div>
+        }
         <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
             <ul class="nav navbar-nav navbar-right">
                 <li>
